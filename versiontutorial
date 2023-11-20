@@ -1,0 +1,46 @@
+Versioning:
+Semantic versioning (SemVer) is a versioning scheme that provides a set of rules and guidelines on how version numbers are assigned and incremented. The version number is generally in the format of MAJOR.MINOR.PATCH, where:
+
+MAJOR version is increased for incompatible API changes.
+MINOR version is increased for backward-compatible new features.
+PATCH version is increased for backward-compatible bug fixes.
+Additionally, pre-release and build metadata can be included as extensions to the MAJOR.MINOR.PATCH format.
+
+Here's an example of semantic versioning:
+
+Initial Release:
+
+Version: 1.0.0
+Explanation: This is the initial release of the software.
+Bug Fixes:
+
+Version: 1.0.1
+Explanation: Bug fixes were made that are backward-compatible.
+New Feature:
+
+Version: 1.1.0
+Explanation: A new feature was added in a backward-compatible manner.
+Backward-Compatible Bug Fix:
+
+Version: 1.1.1
+Explanation: Bug fixes were made that are backward-compatible.
+Incompatible API Change:
+
+Version: 2.0.0
+Explanation: An incompatible API change was introduced.
+Pre-release Version:
+
+Version: 2.0.0-beta.1
+Explanation: A pre-release version of the next major release for testing.
+Another Pre-release Version:
+
+Version: 2.0.0-beta.2
+Explanation: Another pre-release version with additional changes.
+Release Candidate:
+
+Version: 2.0.0-rc.1
+Explanation: A release candidate for the upcoming major release.
+Final Release:
+
+Version: 2.0.0
+Explanation: The final release of the next major version.
