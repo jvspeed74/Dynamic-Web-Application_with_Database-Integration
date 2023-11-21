@@ -8,12 +8,12 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-    <link type="text/css" rel="stylesheet" href="../www/css/banner.css"/>
-    <link type="text/css" rel="stylesheet" href="../www/css/global.css"/>
-    <link type="text/css" rel="stylesheet" href="../www/css/header.css"/>
-    <link type="text/css" rel="stylesheet" href="../www/css/media.css"/>
-    <link type="text/css" rel="stylesheet" href="../www/css/navitemsandsearch.css"/>
-    <link type="text/css" rel="stylesheet" href="../www/css/product.css"/>
+    <link rel="stylesheet" type="text/css" href="www/css/banner.css"/>
+    <link type="text/css" rel="stylesheet" href="www/css/global.css"/>
+    <link type="text/css" rel="stylesheet" href="www/css/header.css"/>
+    <link type="text/css" rel="stylesheet" href="www/css/media.css"/>
+    <link type="text/css" rel="stylesheet" href="www/css/navitemsandsearch.css"/>
+    <link type="text/css" rel="stylesheet" href="www/css/product.css"/>
     <title><?php echo $pageTitle; ?></title>
 
     <?php
