@@ -21,8 +21,8 @@ $db->runQuery("SELECT * FROM $db->tableGames WHERE id=$id");
 
 // Retrieve Data in $rows : array
 $rows = $db->fetchData();
-
 ?>
+
     <section>
         <h2>Game Details</h2>
         <table>
