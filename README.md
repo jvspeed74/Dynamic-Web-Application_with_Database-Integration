@@ -1,3 +1,6 @@
+# Draft 2
+Serves as a branching point for the next submission. There are several branches that need to be completed for this build.
+
 # I210SharedProject
 This Project creates a website with the intention of implementing several backend techniques such as DBMS, SQL, and Application State.
 
