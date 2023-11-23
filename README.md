@@ -1,15 +1,14 @@
 # Draft 2
-Serves as a branching point for the next submission. There are several branches that need to be completed for this build.
+Serves as a branching point for the next submission deadline. There are several branches that need to be completed for this build.
 
-# I210SharedProject
-This Project creates a website with the intention of implementing several backend techniques such as DBMS, SQL, and Application State.
+# Branching Strategy:
+- "Main" branch for production-ready code AKA if you THINK there's an issue with your code DO NOT PUSH IT HERE.
+- "Draft 2" branch is for new features, bug fixes, and minor adjustments.
 
 Getting Started:
 - Download GitHub Desktop
-
-Branching Strategy:
-- "Main" branch for production-ready code AKA if you THINK there's an issue with your code DO NOT PUSH IT HERE.
-- "Main" branch is for new features, bug fixes, and minor adjustments.
+- Using GitHub Desktop, open project branches in PHPStorm.
+- If you try to open project in PHPStorm without going through GitHub Desktop, you make have issues.
 
 Regular Commits:
 - Encourage regular, small commits with clear and descriptive commit messages.
