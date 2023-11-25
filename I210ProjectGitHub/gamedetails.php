@@ -66,6 +66,14 @@ $rows = $db->fetchData();
                     <td><?= $row['description'] ?></td>
                 </tr>
             <?php } ?>
+            <tr>
+                <td>
+                    <form>
+                        <input type="button" onclick="window.location.href='addtocart.php?id=<?= $id ?>';"
+                               value="Add to Cart"/>
+                    </form>
+                </td>
+            </tr>
         </table>
     </section>
 <?php
