@@ -7,7 +7,7 @@
 require("includes/database.php");
 
 // Check session status
-get_sessionStatus();
+checkSession();
 
 // Set cart as existing array or create an empty one
 $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();

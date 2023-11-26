@@ -6,7 +6,7 @@
 <?php
 require ("database.php");
 
-get_sessionStatus();
+checkSession();
 
 $count = 0;
 
