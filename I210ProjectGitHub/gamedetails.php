@@ -8,7 +8,7 @@
 
 // Initial Page Requirements
 $pageTitle = "Game Details";
-require ('includes/header.php');
+require('includes/header.php');
 
 // Connect to Database
 connect();
@@ -67,6 +67,16 @@ $rows = fetchData();
                     <td><?= $row['description'] ?></td>
                 </tr>
             <?php } ?>
+            <?php
+            $confirm = "";
+            if (isset($_GET['m'])) {
+                if ($_GET['m'] == "insert") {
+                    $confirm = "You have successfully added the new game.";
+                } else if ($_GET['m'] == "update") {
+                    $confirm = "Your book has been successfully updated.";
+                }
+            }
+            ?>
             <tr>
                 <td>
                     <form>
@@ -76,6 +86,7 @@ $rows = fetchData();
                 </td>
             </tr>
         </table>
+        <div style="color: red; display: inline-block;"><?= $confirm ?></div>
     </section>
 <?php
 disconnect();

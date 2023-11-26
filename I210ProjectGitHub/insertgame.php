@@ -9,12 +9,14 @@ if (!$_POST) {
 
 // Check each POST variable and kill the script if any of them aren't detected.
 if (!filter_has_var(INPUT_POST, 'title') ||
-    !filter_has_var(INPUT_POST, 'author') ||
-    !filter_has_var(INPUT_POST, 'category') ||
-    !filter_has_var(INPUT_POST, 'isbn') ||
+    !filter_has_var(INPUT_POST, 'genre') ||
+    !filter_has_var(INPUT_POST, 'developer') ||
     !filter_has_var(INPUT_POST, 'publisher') ||
-    !filter_has_var(INPUT_POST, 'price') ||
+    !filter_has_var(INPUT_POST, 'rating') ||
+    !filter_has_var(INPUT_POST, 'esrb') ||
     !filter_has_var(INPUT_POST, 'image') ||
+    !filter_has_var(INPUT_POST, 'release_date') ||
+    !filter_has_var(INPUT_POST, 'price') ||
     !filter_has_var(INPUT_POST, 'description')) {
 
     $error = "There were problems retrieving book details. New book cannot be added.";
@@ -41,7 +43,7 @@ $publisher = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'publ
 $rating = $connection->real_escape_string(filter_input(INPUT_POST, 'rating', FILTER_SANITIZE_STRING));
 $esrb = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'esrb', FILTER_DEFAULT)));
 $image = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'image', FILTER_SANITIZE_STRING)));
-$release_date = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'release_date', FILTER_SANITIZE_STRING)));
+$release_date = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'release_date', FILTER_DEFAULT)));
 $price = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'price', FILTER_SANITIZE_STRING)));
 $description = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING)));
 
