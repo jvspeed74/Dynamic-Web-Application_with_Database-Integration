@@ -8,6 +8,9 @@
 $pageTitle = "Edit Game Details";
 require_once('includes/header.php');
 
+// Connect to Database
+connect();
+
 // Get and validate query string variable "id"
 $id = getValidation(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 
