@@ -73,11 +73,6 @@ function fetchData()
         $rows[] = $row;
     }
 
-    // Check if data is empty
-    if (empty($rows)) {
-        exit("Query led to zero results.");
-    }
-
     return $rows;
 }
 
@@ -125,12 +120,6 @@ function searchGames($searchTerm)
 
     // Run the query
     runQuery($sql);
-
-    // Handle errors
-    global $queryData;
-    if (!$queryData) {
-        exit("No games were found in the search.");
-    }
 
     // Fetch and return the results
     return fetchData();

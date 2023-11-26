@@ -8,7 +8,7 @@
 
 // Initial Page Requirements
 $pageTitle = "Search Results";
-require ('includes/header.php');
+require('includes/header.php');
 
 // Connect to Database
 connect();
@@ -22,7 +22,10 @@ $rows = searchGames($term);
 // Display the results
 ?>
     <section>
-        <h2>Games in our store - <?= count($rows)?> Result(s)</h2>
+        <h2>Games in our store - <?= count($rows) ?> Result(s)</h2>
+        <?php if (count($rows) == 0) {
+            exit("No games were found in the search.");
+        } ?>
         <div>
             <table>
                 <tr>
