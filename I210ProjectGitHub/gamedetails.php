@@ -17,6 +17,7 @@ connect();
 $id = getValidation(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
 // Query SQL statement: select all from games table that matches game id
+/** @var $tableGames */
 runQuery("SELECT * FROM $tableGames WHERE id=$id");
 
 // Retrieve Data in $rows : array

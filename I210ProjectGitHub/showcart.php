@@ -20,6 +20,7 @@ $cart = $_SESSION['cart'];
 connect();
 
 // Query items that are in found inside the cart
+/** @var $tableGames */
 findItems("SELECT id, title, price FROM $tableGames WHERE 0");
 
 // Place query into an array

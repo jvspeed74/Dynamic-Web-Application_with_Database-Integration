@@ -30,7 +30,7 @@ if (isset($_SESSION['cart'])) {
     <link type="text/css" rel="stylesheet" href="www/css/media.css"/>
     <link type="text/css" rel="stylesheet" href="www/css/navitemsandsearch.css"/>
     <link type="text/css" rel="stylesheet" href="www/css/product.css"/>
-    <title><?php echo $pageTitle; ?></title>
+    <title><?php /** @var $pageTitle */echo $pageTitle; ?></title>
 
     <?php
     date_default_timezone_set('America/New_York');

@@ -16,6 +16,7 @@ require 'includes/header.php';
 connect();
 
 // Query SQL statement that selects all from games table
+/** @var $tableGames */
 runQuery("SELECT * FROM $tableGames");
 
 // Retrieve Data in $rows : array
