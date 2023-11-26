@@ -76,9 +76,9 @@ if (!$query) {
     die();
 }
 
-//determine the book id
+// Determine game id
 $id = $connection->insert_id;
 
-//close the database connection
+// Disconnect from Database and return
 disconnect();
 header("Location: gamedetails.php?id=$id&m=insert");
