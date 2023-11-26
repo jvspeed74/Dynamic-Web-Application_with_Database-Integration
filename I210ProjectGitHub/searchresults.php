@@ -22,7 +22,7 @@ $rows = searchGames($term);
 // Display the results
 ?>
     <section>
-        <h2>Games in our store</h2>
+        <h2>Games in our store - <?= count($rows)?> Result(s)</h2>
         <div>
             <table>
                 <tr>
