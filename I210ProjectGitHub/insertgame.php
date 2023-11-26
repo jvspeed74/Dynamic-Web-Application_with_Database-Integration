@@ -30,7 +30,7 @@ require_once('includes/database.php');
 // Connect to Database
 connect();
 
-/* Retrieve book details.
+/* Retrieve game details.
  * For security purpose, call the built-in function real_escape_string to
  * escape special characters in a string for use in SQL statement.
  */
