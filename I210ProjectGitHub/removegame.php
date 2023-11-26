@@ -23,7 +23,7 @@ $id = getValidation(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 /** @var $tableGames */
 runQuery("DELETE FROM $tableGames WHERE id=$id");
 
-
+// Error clause
 global $queryData;
 if (!$queryData) {
     disconnect();
