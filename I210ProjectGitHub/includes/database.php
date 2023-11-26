@@ -176,4 +176,3 @@ function getValidation($input_type, $var_name, $filter = null)
 
     return $output;
 }
-
