@@ -25,37 +25,44 @@ findItems("SELECT id, title, price FROM $tableGames WHERE 0");
 // Place query into an array
 $rows = fetchData();
 
-// Loop to display each item found in the cart
-foreach ($rows as $row) {
-    $id = $row['id'];
-    $title = $row['title'];
-    $price = $row['price'];
-    $qty = $cart[$id];
-    $subtotal = $qty * $price;
 
-    ?>
+?>
 
     <!-- Display Shopping Cart Items -->
-    <tr>
-        <td>Title:</td>
-        <td><?= $title ?></td>
-    </tr>
-    <tr>
-        <td>Price:</td>
-        <td><?= $price ?></td>
-    </tr>
-    <tr>
-        <td>Quantity:</td>
-        <td><?= $qty ?></td>
-    </tr>
-    <tr>
-        <td>Subtotal:</td>
-        <td><?php printf("%.2f", $subtotal); ?></td>
-    </tr>
+    <section>
+        <h2>Shopping Cart</h2>
+        <div>
+            <table>
+                <tr>
+                    <td>Title</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Subtotal</td>
+                </tr>
+                <?php // Loop to display each item found in the cart
+                $total = 0;
+                foreach ($rows as $row) {
+                    $id = $row['id'];
+                    $title = $row['title'];
+                    $price = $row['price'];
+                    $qty = $cart[$id];
+                    $subtotal = $qty * $price;
+                    $total += $subtotal;
+                    ?>
+                    <tr>
+                        <td><a href="gamedetails.php?id=<?= $id ?>"><?= $title ?></a></td>
+                        <td><?= $price ?></td>
+                        <td><?= $qty ?></td>
+                        <td><?php printf("%.2f", $subtotal); ?></td>
+                    </tr>
+                <?php } ?>
+            </table>
+        </div>
+    </section>
 
-<?php } ?>
     <div>
         <input type="button" value="Checkout" onclick="window.location.href = 'checkout.php'"/>
+        <h2>Your Total is <?= $total ?></h2>
     </div>
 
 <?php
