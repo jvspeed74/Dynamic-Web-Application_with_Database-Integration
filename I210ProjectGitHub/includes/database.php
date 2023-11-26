@@ -197,6 +197,13 @@ class Database
         return $this->fetchData();
     }
 
+
+    public function get_cartContent($c, $sql_statement)
+    {
+        foreach (array_keys($c) as $id) {
+            $sql_statement .= " OR id=$id";
+        }
+
+        return $this->runQuery($sql_statement);
+    }
 }
-
-

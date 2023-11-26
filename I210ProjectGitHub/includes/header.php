@@ -3,7 +3,22 @@
 <!-- *  Date: 11/13/23-->
 <!-- * Description: Header-->
 <!-- */-->
+<?php
+include("includes/fnc.php");
 
+get_sessionStatus();
+
+
+if (isset($_SESSION['cart'])) {
+    $cart = $_SESSION['cart'];
+
+    if ($cart) {
+        $count = array_sum($cart);
+    }
+}
+
+
+?>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -27,6 +42,7 @@
         <div class="logo"></div>
         <div class="navbar">
             <ul class="navitems">
+                <li><a href="showcart.php"><?= $count ?> item(s) in cart</a></li>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="listgames.php">Games</a></li>
                 <li><a href="about.php">About</a></li>

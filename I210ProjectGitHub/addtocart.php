@@ -6,7 +6,7 @@ require_once("includes/fnc.php");
 require("includes/database.php");
 
 // Check session status
-sessionStatus();
+get_sessionStatus();
 
 // Set cart as existing array or create an empty one
 $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();

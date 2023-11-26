@@ -3,7 +3,7 @@
  * Checks session status and initiates a session if there is not one already active.
  * @return void
  */
-function sessionStatus()
+function get_sessionStatus()
 {
     if (session_status() == PHP_SESSION_NONE)
         session_start();
