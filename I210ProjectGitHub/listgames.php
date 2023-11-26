@@ -23,6 +23,7 @@ $rows = fetchData();
 
 
 ?>
+
     <section>
         <h2>Games in our store</h2>
         <div>
@@ -45,6 +46,7 @@ $rows = fetchData();
             </table>
         </div>
     </section>
+
 <?php
 disconnect();
 include 'includes/footer.php';

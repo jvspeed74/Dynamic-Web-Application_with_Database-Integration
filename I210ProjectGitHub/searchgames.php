@@ -8,8 +8,9 @@
 
 // Initial Page Requirements
 $pageTitle = "Search Game";
-require ('includes/header.php');
+require('includes/header.php');
 ?>
+
     <section>
         <h2>Search Games by Title</h2>
         <p>Enter one or more words in game title.</p>
@@ -18,5 +19,6 @@ require ('includes/header.php');
             <input type="submit" name="Submit" id="Submit" value="Search Game"/>
         </form>
     </section>
+
 <?php
 include('includes/footer.php');

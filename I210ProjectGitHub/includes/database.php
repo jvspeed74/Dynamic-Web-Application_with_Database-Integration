@@ -75,7 +75,7 @@ function fetchData()
 
     // Check if data is empty
     if (empty($rows)) {
-        raiseError("There was an error storing data from the query.");
+        exit("Query led to zero results.");
     }
 
     return $rows;
