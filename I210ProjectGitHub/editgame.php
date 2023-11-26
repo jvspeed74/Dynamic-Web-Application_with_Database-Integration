@@ -18,15 +18,15 @@ $id = getValidation(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 /** @var $tableGames */
 runQuery("SELECT * FROM $tableGames WHERE id=$id");
 
-// Assign data to $row
-$row = fetchData();
+// Assign data to $rows
+$rows = fetchData();
 ?>
 
     <section>
         <h2>Edit Game Details</h2>
         <form action="updategame.php" method="post">
             <table cellspacing="0" cellpadding="3" style="border: 1px solid silver; padding:5px; margin-bottom: 10px">
-
+                <?php foreach ($rows as $row) { ?>
                 <tr>
                     <td style="text-align: right; width: 100px">Title:</td>
                     <td><input name="title" value="<?php echo $row['title'] ?>" type="text" size="50" required/></td>
@@ -108,7 +108,7 @@ $row = fetchData();
                     <td style="text-align: right; vertical-align: top">Description:</td>
                     <td><textarea name="description" rows="6" cols="65"><?php echo $row['description'] ?></textarea></td>
                 </tr>
-
+                <?php } ?>
             </table>
 
             <div>
