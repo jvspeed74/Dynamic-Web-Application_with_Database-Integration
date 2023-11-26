@@ -84,6 +84,19 @@ $rows = fetchData();
                                value="Add to Cart"/>
                     </form>
                 </td>
+                <td>
+                    <input type="button"
+                           onclick="window.location.href='editgame.php?id=<?= $id ?>'"
+                           value="Edit">
+                </td>
+                <td>
+                    <input type="button" value="Delete" onclick="window.location.href='deletegame.php?id=<?= $id ?>'">
+                </td>
+                <td>
+                    <input type="button"
+                           onclick="window.location.href='listgames.php'"
+                           value="Cancel">
+                </td>
             </tr>
         </table>
         <div style="color: red; display: inline-block;"><?= $confirm ?></div>
