@@ -198,6 +198,12 @@ class Database
     }
 
 
+    /**
+     * Runs a query on the item IDs found in the cat
+     * @param array $c Outer Scope Variable $cart.
+     * @param string $sql_statement SQL query statement.
+     * @return mixed Query result.
+     */
     public function get_cartContent($c, $sql_statement)
     {
         foreach (array_keys($c) as $id) {

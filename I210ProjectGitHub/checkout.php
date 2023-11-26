@@ -1,5 +1,4 @@
 <?php
-require('includes/fnc.php');
 include('includes/header.php');
 
 get_sessionStatus();

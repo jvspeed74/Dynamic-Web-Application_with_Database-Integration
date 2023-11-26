@@ -1,7 +1,16 @@
 <?php
-require('includes/fnc.php');
 require('includes/database.php');
 include('includes/header.php');
+
+// If cart is empty in any session then run code
+if (!isset($_SESSION['cart']) || !$_SESSION['cart']) {
+    echo "Your shopping cart is empty.<br><br>";
+    include('includes/footer.php');
+    exit();
+}
+
+//proceed since the cart is not empty
+$cart = $_SESSION['cart'];
 
 $db = new Database();
 
@@ -16,9 +25,9 @@ foreach ($rows as $row) {
     $qty = $cart[$id];
     $subtotal = $qty * $price;
 
-?>
+    ?>
 
-    <!-- Display Game Attributes -->
+    <!-- Display Shopping Cart Items -->
     <tr>
         <td>Title:</td>
         <td><?= $title ?></td>
@@ -35,6 +44,9 @@ foreach ($rows as $row) {
         <td>Subtotal:</td>
         <td><?php printf("%.2f", $subtotal); ?></td>
     </tr>
+    <div>
+        <input type="button" value="Checkout" onclick="window.location.href = 'checkout.php'"/>
+    </div>
 <?php } ?>
 
 <?php
