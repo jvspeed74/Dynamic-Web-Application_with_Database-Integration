@@ -73,7 +73,7 @@ $rows = fetchData();
                 if ($_GET['m'] == "insert") {
                     $confirm = "You have successfully added the new game.";
                 } else if ($_GET['m'] == "update") {
-                    $confirm = "Your book has been successfully updated.";
+                    $confirm = "Your game has been successfully updated.";
                 }
             }
             ?>
