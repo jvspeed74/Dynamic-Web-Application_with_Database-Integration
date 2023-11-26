@@ -7,20 +7,19 @@
  */
 // Initial Page Requirements
 $pageTitle = "Game Details";
-include('includes/header.php');
-require('includes/database.php');
+require ('includes/header.php');
 
-// Define $db as Class Database
-$db = new Database();
+// Connect to Database
+connect();
 
 // Retrieve and validate game id
-$id = $db->getValidation(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+$id = getValidation(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
 // Query SQL statement: select all from games table that matches game id
-$db->runQuery("SELECT * FROM $db->tableGames WHERE id=$id");
+runQuery("SELECT * FROM $tableGames WHERE id=$id");
 
 // Retrieve Data in $rows : array
-$rows = $db->fetchData();
+$rows = fetchData();
 ?>
 
     <section>
@@ -77,5 +76,5 @@ $rows = $db->fetchData();
         </table>
     </section>
 <?php
-$db->close();
+disconnect();
 include('includes/footer.php');

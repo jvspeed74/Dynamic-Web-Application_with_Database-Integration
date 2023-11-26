@@ -1,6 +1,5 @@
 <?php
-require('includes/database.php');
-include('includes/header.php');
+require ('includes/header.php');
 
 // If cart is empty in any session then run code
 if (!isset($_SESSION['cart']) || !$_SESSION['cart']) {
@@ -9,15 +8,19 @@ if (!isset($_SESSION['cart']) || !$_SESSION['cart']) {
     exit();
 }
 
-//proceed since the cart is not empty
+// Update cart array
 $cart = $_SESSION['cart'];
 
-$db = new Database();
+// Connect to Database
+connect();
 
-$db->get_cartContent($cart, "SELECT id, title, price FROM $db->tableGames WHERE 0");
+// Query items that are in found inside the cart
+findItems("SELECT id, title, price FROM $tableGames WHERE 0");
 
-$rows = $db->fetchData();
+// Place query into an array
+$rows = fetchData();
 
+// Loop to display each item found in the cart
 foreach ($rows as $row) {
     $id = $row['id'];
     $title = $row['title'];
@@ -50,5 +53,5 @@ foreach ($rows as $row) {
 <?php } ?>
 
 <?php
-$db->close();
+disconnect();
 include('includes/footer.php');

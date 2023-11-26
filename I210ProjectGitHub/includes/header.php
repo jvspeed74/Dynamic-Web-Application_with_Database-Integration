@@ -4,7 +4,7 @@
 <!-- * Description: Header-->
 <!-- */-->
 <?php
-include("includes/fnc.php");
+require ("database.php");
 
 get_sessionStatus();
 

@@ -1,5 +1,5 @@
 <?php
-include('includes/header.php');
+require ('includes/header.php');
 
 get_sessionStatus();
 

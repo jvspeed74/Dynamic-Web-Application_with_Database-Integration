@@ -2,7 +2,7 @@
 /*
  *
  * */
-require_once("includes/fnc.php");
+
 require("includes/database.php");
 
 // Check session status

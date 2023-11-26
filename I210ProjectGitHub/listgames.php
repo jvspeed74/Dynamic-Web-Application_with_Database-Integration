@@ -8,17 +8,17 @@
  */
 // Initial Page Requirements
 $pageTitle = "Video Games in Our Store";
-include 'includes/header.php';
-require "includes/database.php";
+require 'includes/header.php';
+
 
 // Define $db as Class Database
-$db = new Database();
+connect();
 
 // Query SQL statement that selects all from games table
-$db->runQuery("SELECT * FROM $db->tableGames");
+runQuery("SELECT * FROM $tableGames");
 
 // Retrieve Data in $rows : array
-$rows = $db->fetchData();
+$rows = fetchData();
 
 
 ?>
@@ -45,5 +45,5 @@ $rows = $db->fetchData();
         </div>
     </section>
 <?php
-$db->close();
+disconnect();
 include 'includes/footer.php';

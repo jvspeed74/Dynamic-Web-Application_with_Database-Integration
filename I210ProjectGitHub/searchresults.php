@@ -6,18 +6,17 @@
  * Description: This script searches for games that match book titles in the database.
  */
 // Initial Page Requirements
-$pageTitle = "Game Search results";
-include('includes/header.php');
-require('includes/database.php');
+$pageTitle = "Search Results";
+require ('includes/header.php');
 
-// Define $db as Class Database
-$db = new Database();
+// Connect to Database
+connect();
 
 // Retrieve and validate search terms
-$term = $db->getValidation(INPUT_GET, 'q');
+$term = getValidation(INPUT_GET, 'q');
 
-// Search for games
-$rows = $db->searchGames($term);
+// Search for games using terms
+$rows = searchGames($term);
 
 // Display the results
 ?>
@@ -44,5 +43,5 @@ $rows = $db->searchGames($term);
         </div>
     </section>
 <?php
-$db->close();
+disconnect();
 include('includes/footer.php');

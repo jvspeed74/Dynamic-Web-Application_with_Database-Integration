@@ -7,7 +7,7 @@
  */
 $pageTable = "Search Game";
 
-include('includes/header.php');
+require ('includes/header.php');
 ?>
     <section>
         <h2>Search Games by Title</h2>

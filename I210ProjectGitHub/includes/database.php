@@ -1,215 +1,197 @@
 <?php
 /**
  * Author: Jalen Vaughn
- * Date: 11/12/23
- * File: database.php
- * Description: Database class for handling MySQL database interactions.
+ * Date: 11/25/23
+ * File: db.php
+ * Description: Refactored Database Class into Procedural-style
  */
 
-class Database
+/**
+ * Author: Jalen Vaughn
+ * Date: 11/12/23
+ * File: database.php
+ * Description: Procedural-style functions for handling MySQL database interactions.
+ */
+
+// Database connection properties
+$connection = null;
+$queryData = null;
+$tableGames = 'games';
+$tableEsrbs = 'esrbs';
+$tableGenres = 'genres';
+$tablePublishers = 'publishers';
+$tableDevelopers = 'developers';
+
+/**
+ * Connect to the database.
+ * @param string $dbHost Database host.
+ * @param string $dbUser Database username.
+ * @param string $dbPassword Database password.
+ * @param string $dbName Database name.
+ */
+function connect($dbHost = 'localhost', $dbUser = 'phpuser', $dbPassword = 'phpuser', $dbName = 'videogame_db')
 {
-    // Database connection properties
-    protected $connection;
-    protected $queryData;
-    public $tableGames;
-    public $tableEsrbs;
-    public $tableGenres;
-    public $tablePublishers;
-    public $tableDevelopers;
+    global $connection;
 
-    /**
-     * Constructor: Initializes the class and establishes a database connection.
-     * @param string $dbHost Database host.
-     * @param string $dbUser Database username.
-     * @param string $dbPassword Database password.
-     * @param string $dbName Database name.
-     */
-    public function __construct(
-        $dbHost = 'localhost',
-        $dbUser = 'phpuser',
-        $dbPassword = 'phpuser',
-        $dbName = 'videogame_db'
-    )
-    {
-        // Set default table names
-        $this->tableGames = 'games';
-        $this->tableEsrbs = 'esrbs';
-        $this->tableGenres = 'genres';
-        $this->tablePublishers = 'publishers';
-        $this->tableDevelopers = 'developers';
+    $connection = new mysqli($dbHost, $dbUser, $dbPassword, $dbName);
 
-        // Establish a database connection
-        $this->connect($dbHost, $dbUser, $dbPassword, $dbName);
-    }
-
-    /**
-     * Connect to the database.
-     * @param string $dbHost Database host.
-     * @param string $dbUser Database username.
-     * @param string $dbPassword Database password.
-     * @param string $dbName Database name.
-     */
-    protected function connect($dbHost, $dbUser, $dbPassword, $dbName)
-    {
-        $this->connection = new mysqli($dbHost, $dbUser, $dbPassword, $dbName);
-
-        // Check for connection errors
-        if ($this->connection->connect_error) {
-            $this->handleError(004);
-        }
-    }
-
-    /**
-     * Run a SQL query.
-     * @param string $sql_statement SQL query statement.
-     * @return mixed Query result.
-     */
-    public function runQuery($sql_statement)
-    {
-        $this->queryData = $this->connection->query($sql_statement);
-
-        // Check for query execution errors
-        if (!$this->queryData) {
-            $this->handleError(003);
-        }
-
-        return $this->queryData;
-    }
-
-    /**
-     * Fetch data from the query result.
-     * @return array Fetched rows.
-     */
-    public function fetchData()
-    {
-        $rows = array();
-
-        // Fetch data and store in an array
-        while ($row = $this->queryData->fetch_assoc()) {
-            $rows[] = $row;
-        }
-
-        // Check if data is empty
-        if (empty($rows)) {
-            $this->handleError(002);
-        }
-
-        return $rows;
-    }
-
-    /**
-     * Close the database connection.
-     * @return bool True if successful, false otherwise.
-     */
-    public function close()
-    {
-        return $this->connection->close();
-    }
-
-    /**
-     * Perform input validation.
-     * @param int $input_type Input type (e.g., INPUT_GET).
-     * @param string $var_name Variable name.
-     * @param int|null $filter Filter type (e.g., FILTER_SANITIZE_STRING).
-     * @return mixed Validated input.
-     */
-    public function getValidation($input_type, $var_name, $filter = null)
-    {
-        // Check if the variable exists
-        if (!filter_has_var($input_type, $var_name)) {
-            $this->handleError(001);
-        }
-
-        switch ($filter) {
-            case null:
-                $output = filter_input($input_type, $var_name);
-                break;
-            case FILTER_SANITIZE_STRING:
-            case FILTER_SANITIZE_NUMBER_INT:
-                $output = filter_input($input_type, $var_name, $filter);
-                break;
-            default:
-                $this->handleError(005);
-        }
-
-        return $output;
-    }
-
-    /**
-     * Handle errors and terminate the script.
-     * @param int $code Error code.
-     */
-    protected function handleError($code)
-    {
-        switch ($code) {
-            case 001:
-                $error = "Validation Failed: Invalid Method or Name";
-                break;
-            case 002:
-                $error = "Fetch Data Failed: Game not found";
-                break;
-            case 003:
-                $error = "Run Query Failed: " . $this->connection->error;
-                break;
-            case 004:
-                $error = "Connection to Database Failed: " . $this->connection->connect_error;
-                break;
-            case 005:
-                $error = "Validation Failed: Filter is of an invalid type";
-                break;
-            default:
-                $error = "Site Terminated: Unknown Error";
-        }
-
-        // Close the connection and exit with an error message
-        $this->connection->close();
-        exit($error);
-    }
-
-    /**
-     * Search for games based on a search term.
-     * @param string $searchTerm Search term.
-     * @return array Search results.
-     */
-    public function searchGames($searchTerm)
-    {
-        // SQL statement
-        $sql = "SELECT id, title, genre, esrb, price FROM $this->tableGames WHERE ";
-
-        // Split search terms
-        $terms = explode(' ', $searchTerm);
-
-        foreach ($terms as $t) {
-            $sql .= "title LIKE '%$t%' AND ";
-        }
-
-        $sql = rtrim($sql, 'AND ');
-
-        // Run the query
-        $this->runQuery($sql);
-
-        // Handle errors
-        if (!$this->queryData) {
-            $this->handleError(003);
-        }
-
-        // Fetch and return the results
-        return $this->fetchData();
-    }
-
-
-    /**
-     * Runs a query on the item IDs found in the cat
-     * @param array $c Outer Scope Variable $cart.
-     * @param string $sql_statement SQL query statement.
-     * @return mixed Query result.
-     */
-    public function get_cartContent($c, $sql_statement)
-    {
-        foreach (array_keys($c) as $id) {
-            $sql_statement .= " OR id=$id";
-        }
-
-        return $this->runQuery($sql_statement);
+    // Check for connection errors
+    if ($connection->connect_error) {
+        raiseError("There was an error connecting to the database.");
     }
 }
+
+/**
+ * Run a SQL query.
+ * @param string $sql_statement SQL query statement.
+ * @return mixed Query result.
+ */
+function runQuery($sql_statement)
+{
+    global $connection, $queryData;
+
+    $queryData = $connection->query($sql_statement);
+
+    return $queryData;
+}
+
+/**
+ * Fetch data from the query result.
+ * @return array Fetched rows.
+ */
+function fetchData()
+{
+    global $queryData;
+    if (!$queryData) {
+        raiseError("There was an error fetching data from the query.");
+    }
+
+    $rows = array();
+
+    // Fetch data and store in an array
+    while ($row = $queryData->fetch_assoc()) {
+        $rows[] = $row;
+    }
+
+    // Check if data is empty
+    if (empty($rows)) {
+        raiseError("There was an error storing data from the query.");
+    }
+
+    return $rows;
+}
+
+/**
+ * Close the database connection.
+ * @return bool True if successful, false otherwise.
+ */
+function disconnect()
+{
+    global $connection;
+    return $connection->close();
+}
+
+/**
+ * Raises errors and terminates the script.
+ * @param string $error_string Error message that gets displayed.
+ * @return void
+ */
+function raiseError($error_string)
+{
+    header("Location: error.php?m$error_string");
+    die();
+}
+
+/**
+ * Search for games based on a search term.
+ * @param string $searchTerm Search term.
+ * @return array Search results.
+ */
+function searchGames($searchTerm)
+{
+    global $tableGames;
+
+    // SQL statement
+    $sql = "SELECT id, title, genre, esrb, price FROM $tableGames WHERE ";
+
+    // Split search terms
+    $terms = explode(' ', $searchTerm);
+
+    foreach ($terms as $t) {
+        $sql .= "title LIKE '%$t%' AND ";
+    }
+
+    $sql = rtrim($sql, 'AND ');
+
+    // Run the query
+    runQuery($sql);
+
+    // Handle errors
+    global $queryData;
+    if (!$queryData) {
+        exit("No games were found in the search.");
+    }
+
+    // Fetch and return the results
+    return fetchData();
+}
+
+/**
+ * Runs a query on the item IDs found in the cart.
+ * @param string $sql_statement SQL query statement.
+ * @return mixed Query result.
+ */
+function findItems($sql_statement)
+{
+    global $cart;
+    if ($cart != array())
+        raiseError("There was an error initializing the cart correctly.");
+
+    foreach (array_keys($cart) as $id) {
+        $sql_statement .= " OR id=$id";
+    }
+
+    return runQuery($sql_statement);
+}
+
+/**
+ * Checks session status and initiates a session if there is not one already active.
+ * @return void
+ */
+function get_sessionStatus()
+{
+    if (session_status() == PHP_SESSION_NONE)
+        session_start();
+}
+
+/**
+ * Perform input validation.
+ * @param int $input_type Input type (INPUT_GET || INPUT_POST).
+ * @param string $var_name Variable name.
+ * @param int|null $filter Filter type (FILTER_SANITIZE_(STRING || NUMBER_INT || null).
+ * @return mixed Validated input.
+ */
+function getValidation($input_type, $var_name, $filter = null)
+{
+    // Check if the variable exists
+    if (!filter_has_var($input_type, $var_name)) {
+        raiseError("There was an error retrieving page identification");
+
+    }
+
+    // Check for what type of filter to use
+    switch ($filter) {
+        case null:
+            $output = filter_input($input_type, $var_name);
+            break;
+        case FILTER_SANITIZE_STRING:
+        case FILTER_SANITIZE_NUMBER_INT:
+            $output = filter_input($input_type, $var_name, $filter);
+            break;
+        default:
+            raiseError("There was an error specifying filter to use for validation.");
+    }
+
+    return $output;
+}
+
