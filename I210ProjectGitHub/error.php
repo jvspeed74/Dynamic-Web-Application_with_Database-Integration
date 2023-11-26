@@ -8,14 +8,14 @@
  */
 
 $page_title = "Game 'n Go: Error";
-require_once 'includes/header.php';
 
 // Declare default statement if getValidation fails
 $error='Default error.';
 
-// Validate string sent in raiseError
-getValidation(INPUT_GET, "m", FILTER_SANITIZE_STRING);
-
+// Validate string without function (using raiseError allows for infinite loop)
+if (filter_has_var(INPUT_GET, "m")) {
+	$error = filter_input(INPUT_GET, 'm', FILTER_SANITIZE_STRING);
+}
 ?>
 <h2>Error</h2>
 

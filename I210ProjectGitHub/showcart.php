@@ -1,5 +1,5 @@
 <?php
-require ('includes/header.php');
+require('includes/header.php');
 
 // If cart is empty in any session then run code
 if (!isset($_SESSION['cart']) || !$_SESSION['cart']) {
@@ -47,10 +47,11 @@ foreach ($rows as $row) {
         <td>Subtotal:</td>
         <td><?php printf("%.2f", $subtotal); ?></td>
     </tr>
+
+<?php } ?>
     <div>
         <input type="button" value="Checkout" onclick="window.location.href = 'checkout.php'"/>
     </div>
-<?php } ?>
 
 <?php
 disconnect();

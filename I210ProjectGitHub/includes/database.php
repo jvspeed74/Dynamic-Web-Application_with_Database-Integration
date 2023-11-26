@@ -144,7 +144,7 @@ function searchGames($searchTerm)
 function findItems($sql_statement)
 {
     global $cart;
-    if ($cart != array())
+    if (!is_array($cart))
         raiseError("There was an error initializing the cart correctly.");
 
     foreach (array_keys($cart) as $id) {
