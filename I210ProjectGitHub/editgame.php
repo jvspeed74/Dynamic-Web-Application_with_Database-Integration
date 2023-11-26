@@ -1,10 +1,5 @@
 <?php
-/**
- * Author: your name
- * Date: today's date
- * File: bookdetails.php
- *  Description: This script displays details of a particular book in a form.
- */
+
 $pageTitle = "Edit Game Details";
 require_once('includes/header.php');
 
@@ -119,6 +114,6 @@ $rows = fetchData();
         </form>
     </section>
 <?php
-// close the connection.
+// Disconnect from Database.
 disconnect();
 require_once 'includes/footer.php';
