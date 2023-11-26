@@ -1,5 +1,10 @@
 <?php
+
+
+// Initial Page Requirements
+$pageTitle = "Shopping Cart";
 require('includes/header.php');
+
 
 // If cart is empty in any session then run code
 if (!isset($_SESSION['cart']) || !$_SESSION['cart']) {

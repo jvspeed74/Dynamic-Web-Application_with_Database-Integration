@@ -6,12 +6,13 @@
  * Description: this script lists all books from the books table.
  *
  */
+
 // Initial Page Requirements
-$pageTitle = "Video Games in Our Store";
+$pageTitle = "Video Games";
 require 'includes/header.php';
 
 
-// Define $db as Class Database
+// Connect to Database
 connect();
 
 // Query SQL statement that selects all from games table

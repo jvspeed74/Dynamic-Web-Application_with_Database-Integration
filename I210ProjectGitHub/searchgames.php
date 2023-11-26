@@ -5,8 +5,9 @@
  * Name: searchbook.php
  * Description: This script displays a search form.
  */
-$pageTable = "Search Game";
 
+// Initial Page Requirements
+$pageTitle = "Search Game";
 require ('includes/header.php');
 ?>
     <section>

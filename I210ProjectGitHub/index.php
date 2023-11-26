@@ -5,6 +5,7 @@
  * Description: Homepage
  */
 
+// Initial Page Requirements
 $pageTitle = "Game 'n Go";
 require ('includes/header.php');
 ?>

@@ -3,6 +3,7 @@
  *
  * */
 
+// Initial Page Requirements
 require("includes/database.php");
 
 // Check session status

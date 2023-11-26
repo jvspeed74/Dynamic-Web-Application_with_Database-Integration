@@ -5,6 +5,7 @@
  * File: gamedetails.php
  *  Description: This script displays details of a particular game.
  */
+
 // Initial Page Requirements
 $pageTitle = "Game Details";
 require ('includes/header.php');

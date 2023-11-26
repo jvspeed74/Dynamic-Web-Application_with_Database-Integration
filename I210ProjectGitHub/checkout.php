@@ -1,13 +1,11 @@
 <?php
+
+
+// Initial Page Requirements
+$pageTitle = "Checkout";
 require ('includes/header.php');
 
-get_sessionStatus();
-
 $_SESSION['cart'] = array();
-
-$page_title = "Checkout";
-
-require_once("includes/header.php");
 ?>
 
 <h2>Checkout</h2>

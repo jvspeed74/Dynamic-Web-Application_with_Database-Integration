@@ -5,6 +5,7 @@
  * File: searchresults.php
  * Description: This script searches for games that match book titles in the database.
  */
+
 // Initial Page Requirements
 $pageTitle = "Search Results";
 require ('includes/header.php');
