@@ -59,6 +59,8 @@ function fetchData()
         raiseError("There was an error fetching data from the query.");
     }
 
+    $rows = [];
+
     // Fetch data and store in an array
     while ($row = $queryData->fetch_assoc()) {
         $rows[] = $row;
