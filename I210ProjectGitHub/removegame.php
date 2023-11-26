@@ -30,6 +30,6 @@ if (!$queryData) {
     raiseError("Deletion failed");
 }
 
-echo "<p>The book has been successfully deleted from the database.</p>";
+echo "<p>The game has been successfully deleted from the database.</p>";
 disconnect();
 require_once 'includes/footer.php';
