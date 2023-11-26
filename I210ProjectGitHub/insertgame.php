@@ -19,7 +19,7 @@ if (!filter_has_var(INPUT_POST, 'title') ||
     !filter_has_var(INPUT_POST, 'price') ||
     !filter_has_var(INPUT_POST, 'description')) {
 
-    $error = "There were problems retrieving book details. New book cannot be added.";
+    $error = "There was an error retrieving game details. Game cannot be added.";
     header("Location: error.php?m=$error");
     die();
 }
@@ -38,12 +38,12 @@ global $connection;
 
 $title = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING)));
 $genre = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'genre', FILTER_DEFAULT)));
-$developer = $connection->real_escape_string(filter_input(INPUT_POST, 'developer', FILTER_DEFAULT));
+$developer = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'developer', FILTER_DEFAULT)));
 $publisher = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'publisher', FILTER_DEFAULT)));
-$rating = $connection->real_escape_string(filter_input(INPUT_POST, 'rating', FILTER_SANITIZE_STRING));
+$rating = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'rating', FILTER_SANITIZE_STRING)));
 $esrb = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'esrb', FILTER_DEFAULT)));
 $image = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'image', FILTER_SANITIZE_STRING)));
-$release_date = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'release_date', FILTER_DEFAULT)));
+$release_date = $connection->real_escape_string(filter_input(INPUT_POST, 'release_date', FILTER_DEFAULT));
 $price = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'price', FILTER_SANITIZE_STRING)));
 $description = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING)));
 
