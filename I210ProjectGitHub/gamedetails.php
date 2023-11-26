@@ -73,17 +73,23 @@ $rows = fetchData();
                 if ($_GET['m'] == "insert") {
                     $confirm = "You have successfully added the new game.";
                 } else if ($_GET['m'] == "update") {
-                    $confirm = "Your book has been successfully updated.";
+                    $confirm = "Your game has been successfully updated.";
                 }
             }
             ?>
             <tr>
-                <td>
-                    <form>
+                <td colspan="2">
                         <input type="button" onclick="window.location.href='addtocart.php?id=<?= $id ?>';"
                                value="Add to Cart"/>
-                    </form>
+                    <input type="button"
+                           onclick="window.location.href='editgame.php?id=<?= $id ?>'"
+                           value="Edit">
+                    <input type="button" value="Delete" onclick="window.location.href='deletegame.php?id=<?= $id ?>'">
+                    <input type="button"
+                           onclick="window.location.href='listgames.php'"
+                           value="Cancel">
                 </td>
+
             </tr>
         </table>
         <div style="color: red; display: inline-block;"><?= $confirm ?></div>
