@@ -1,13 +1,6 @@
 <?php
 /**
  * Author: Jalen Vaughn
- * Date: 11/25/23
- * File: db.php
- * Description: Refactored Database Class into Procedural-style
- */
-
-/**
- * Author: Jalen Vaughn
  * Date: 11/12/23
  * File: database.php
  * Description: Procedural-style functions for handling MySQL database interactions.
@@ -66,7 +59,7 @@ function fetchData()
         raiseError("There was an error fetching data from the query.");
     }
 
-    $rows = array();
+    $rows = [];
 
     // Fetch data and store in an array
     while ($row = $queryData->fetch_assoc()) {
@@ -78,12 +71,12 @@ function fetchData()
 
 /**
  * Close the database connection.
- * @return bool True if successful, false otherwise.
+ * @return void
  */
 function disconnect()
 {
     global $connection;
-    return $connection->close();
+    $connection->close();
 }
 
 /**
@@ -147,7 +140,7 @@ function findItems($sql_statement)
  * Checks session status and initiates a session if there is not one already active.
  * @return void
  */
-function get_sessionStatus()
+function checkSession()
 {
     if (session_status() == PHP_SESSION_NONE)
         session_start();
@@ -183,4 +176,3 @@ function getValidation($input_type, $var_name, $filter = null)
 
     return $output;
 }
-

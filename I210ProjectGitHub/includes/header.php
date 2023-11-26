@@ -6,7 +6,7 @@
 <?php
 require ("database.php");
 
-get_sessionStatus();
+checkSession();
 
 $count = 0;
 
@@ -46,7 +46,7 @@ if (isset($_SESSION['cart'])) {
                 <li><a href="showcart.php"><?= $count ?> item(s) in cart</a></li>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="listgames.php">Games</a></li>
-                <li><a href="about.php">About</a></li>
+                <li><a href="addgame.php">Add Games</a></li>
             </ul>
 
         </div>
