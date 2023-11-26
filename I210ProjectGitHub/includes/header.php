@@ -8,6 +8,7 @@ include("includes/fnc.php");
 
 get_sessionStatus();
 
+$count = 0;
 
 if (isset($_SESSION['cart'])) {
     $cart = $_SESSION['cart'];
