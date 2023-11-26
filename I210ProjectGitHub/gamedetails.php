@@ -78,19 +78,13 @@ $rows = fetchData();
             }
             ?>
             <tr>
-                <td>
+                <td colspan="2">
                         <input type="button" onclick="window.location.href='addtocart.php?id=<?= $id ?>';"
                                value="Add to Cart"/>
-                </td>
-                <td>
                     <input type="button"
                            onclick="window.location.href='editgame.php?id=<?= $id ?>'"
                            value="Edit">
-                </td>
-                <td>
                     <input type="button" value="Delete" onclick="window.location.href='deletegame.php?id=<?= $id ?>'">
-                </td>
-                <td>
                     <input type="button"
                            onclick="window.location.href='listgames.php'"
                            value="Cancel">
