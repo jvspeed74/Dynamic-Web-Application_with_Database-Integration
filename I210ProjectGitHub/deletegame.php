@@ -1,19 +1,14 @@
 <?php
 /**
- * Author: Jalen Vaughn
- *  Date: 11/16/23
- * File: gamedetails.php
- *  Description: This script displays details of a particular game.
+ * Description: This script confirms deletion of book.
  */
-
-// Initial Page Requirements
-$pageTitle = "Game Details";
-require('includes/header.php');
+$pageTitle = "Confirm Game Deletion";
+require_once('includes/header.php');
 
 // Connect to Database
 connect();
 
-// Retrieve and validate game id
+// Retrieve and validate id sent in query string
 $id = getValidation(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
 // Execute query with statement
@@ -23,7 +18,6 @@ runQuery("SELECT * FROM $tableGames WHERE id=$id");
 // Get data associated with query
 $rows = fetchData();
 ?>
-
     <section>
         <h2>Game Details</h2>
         <table>
@@ -67,33 +61,18 @@ $rows = fetchData();
                     <td><?= $row['description'] ?></td>
                 </tr>
             <?php } ?>
-            <?php
-            $confirm = "";
-            if (isset($_GET['m'])) {
-                if ($_GET['m'] == "insert") {
-                    $confirm = "You have successfully added the new game.";
-                } else if ($_GET['m'] == "update") {
-                    $confirm = "Your game has been successfully updated.";
-                }
-            }
-            ?>
             <tr>
                 <td colspan="2">
-                        <input type="button" onclick="window.location.href='addtocart.php?id=<?= $id ?>';"
-                               value="Add to Cart"/>
+                    <input type="button" onclick="window.location.href='removegame.php?id=<?= $id ?>';"
+                           value="Delete"/>
                     <input type="button"
-                           onclick="window.location.href='editgame.php?id=<?= $id ?>'"
-                           value="Edit">
-                    <input type="button" value="Delete" onclick="window.location.href='deletegame.php?id=<?= $id ?>'">
-                    <input type="button"
-                           onclick="window.location.href='listgames.php'"
+                           onclick="window.location.href='gamedetails.php?id=<?= $id ?>'"
                            value="Cancel">
                 </td>
-
+                <td>Are you sure you want to delete this game?
+                </td>
             </tr>
         </table>
-        <div style="color: red; display: inline-block;"><?= $confirm ?></div>
     </section>
 <?php
-disconnect();
-include('includes/footer.php');
+require_once('includes/footer.php');
