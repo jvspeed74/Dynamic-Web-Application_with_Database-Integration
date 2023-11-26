@@ -33,11 +33,11 @@ $row = fetchData();
                     <td style="text-align: right">Genre:</td>
                     <td>
                         <select name="genre">
-                            <option <?= $row['category'] == 'Action-Adventure' ? 'selected' : ''; ?>>Action-Adventure</option>
-                            <option <?= $row['category'] == 'Action-Role Playing' ? 'selected' : ''; ?>>Action-Role Playing</option>
-                            <option <?= $row['category'] == 'First-Person Shooter' ? 'selected' : ''; ?>>First-Person Shooter</option>
-                            <option <?= $row['category'] == 'Life Simulation' ? 'selected' : ''; ?>>Life Simulation</option>
-                            <option <?= $row['category'] == 'Sports' ? 'selected' : ''; ?>>Sports</option>
+                            <option <?= $row['genre'] == 'Action-Adventure' ? 'selected' : ''; ?>>Action-Adventure</option>
+                            <option <?= $row['genre'] == 'Action-Role Playing' ? 'selected' : ''; ?>>Action-Role Playing</option>
+                            <option <?= $row['genre'] == 'First-Person Shooter' ? 'selected' : ''; ?>>First-Person Shooter</option>
+                            <option <?= $row['genre'] == 'Life Simulation' ? 'selected' : ''; ?>>Life Simulation</option>
+                            <option <?= $row['genre'] == 'Sports' ? 'selected' : ''; ?>>Sports</option>
                         </select>
                     </td>
                 </tr>
@@ -46,11 +46,11 @@ $row = fetchData();
                     <td style="text-align: right">Developer:</td>
                     <td>
                         <select name="developer">
-                            <option <?= $row['category'] == '343 Industries' ? 'selected' : ''; ?>>343 Industries</option>
-                            <option <?= $row['category'] == 'CD Projekt Red' ? 'selected' : ''; ?>>CD Projekt Red</option>
-                            <option <?= $row['category'] == 'EA Tiburon' ? 'selected' : ''; ?>>EA Tiburon</option>
-                            <option <?= $row['category'] == 'Nintendo EPD' ? 'selected' : ''; ?>>Nintendo EPD</option>
-                            <option <?= $row['category'] == 'Rockstar Studios' ? 'selected' : ''; ?>>Rockstar Studios</option>
+                            <option <?= $row['developer'] == '343 Industries' ? 'selected' : ''; ?>>343 Industries</option>
+                            <option <?= $row['developer'] == 'CD Projekt Red' ? 'selected' : ''; ?>>CD Projekt Red</option>
+                            <option <?= $row['developer'] == 'EA Tiburon' ? 'selected' : ''; ?>>EA Tiburon</option>
+                            <option <?= $row['developer'] == 'Nintendo EPD' ? 'selected' : ''; ?>>Nintendo EPD</option>
+                            <option <?= $row['developer'] == 'Rockstar Studios' ? 'selected' : ''; ?>>Rockstar Studios</option>
                         </select>
                     </td>
                 </tr>
@@ -59,11 +59,11 @@ $row = fetchData();
                     <td style="text-align: right">Publisher:</td>
                     <td>
                         <select name="publisher">
-                            <option <?= $row['category'] == 'CD Projekt' ? 'selected' : ''; ?>>CD Projekt</option>
-                            <option <?= $row['category'] == 'EA Sports' ? 'selected' : ''; ?>>EA Sports</option>
-                            <option <?= $row['category'] == 'Nintendo' ? 'selected' : ''; ?>>Nintendo</option>
-                            <option <?= $row['category'] == 'Rockstar Games' ? 'selected' : ''; ?>>Rockstar Games</option>
-                            <option <?= $row['category'] == 'Xbox Game Studios' ? 'selected' : ''; ?>>Xbox Game Studios</option>
+                            <option <?= $row['publisher'] == 'CD Projekt' ? 'selected' : ''; ?>>CD Projekt</option>
+                            <option <?= $row['publisher'] == 'EA Sports' ? 'selected' : ''; ?>>EA Sports</option>
+                            <option <?= $row['publisher'] == 'Nintendo' ? 'selected' : ''; ?>>Nintendo</option>
+                            <option <?= $row['publisher'] == 'Rockstar Games' ? 'selected' : ''; ?>>Rockstar Games</option>
+                            <option <?= $row['publisher'] == 'Xbox Game Studios' ? 'selected' : ''; ?>>Xbox Game Studios</option>
                         </select>
                     </td>
                 </tr>
@@ -77,11 +77,11 @@ $row = fetchData();
                     <td style="text-align: right">ESRB:</td>
                     <td>
                         <select name="esrb">
-                            <option <?= $row['category'] == 'Everyone' ? 'selected' : ''; ?>>Everyone</option>
-                            <option <?= $row['category'] == 'Everyone 10+' ? 'selected' : ''; ?>>Everyone 10+</option>
-                            <option <?= $row['category'] == 'Mature 17+' ? 'selected' : ''; ?>>Mature 17+</option>
-                            <option <?= $row['category'] == 'Rating Pending' ? 'selected' : ''; ?>>Rating Pending</option>
-                            <option <?= $row['category'] == 'Teen' ? 'selected' : ''; ?>>Teen</option>
+                            <option <?= $row['esrb'] == 'Everyone' ? 'selected' : ''; ?>>Everyone</option>
+                            <option <?= $row['esrb'] == 'Everyone 10+' ? 'selected' : ''; ?>>Everyone 10+</option>
+                            <option <?= $row['esrb'] == 'Mature 17+' ? 'selected' : ''; ?>>Mature 17+</option>
+                            <option <?= $row['esrb'] == 'Rating Pending' ? 'selected' : ''; ?>>Rating Pending</option>
+                            <option <?= $row['esrb'] == 'Teen' ? 'selected' : ''; ?>>Teen</option>
                         </select>
                     </td>
                 </tr>
