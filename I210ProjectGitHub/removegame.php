@@ -27,7 +27,7 @@ $query = runQuery("DELETE FROM $tableGames WHERE id=$id");
 
 if (!$query) {
     disconnect();
-    raiseError("Deletion failed");
+    pageError("Deletion failed");
 }
 
 echo "<p>The game has been successfully deleted from the database.</p>";

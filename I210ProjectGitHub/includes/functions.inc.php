@@ -1,12 +1,23 @@
 <?php
 /**
- * Raises errors and terminates the script.
+ * Raises errors and terminates the script for root/main pages
  * @param string $error_string Error message that gets displayed.
  * @return void
  */
-function raiseError($error_string)
+function pageError($error_string)
 {
     header("Location: error.php?m$error_string");
+    die();
+}
+
+/**
+ * Raises errors and terminates the script for root/main pages
+ * @param string $error_string Error message that gets displayed.
+ * @return void
+ */
+function scriptError($error_string)
+{
+    header("Location: ../../error.php?m$error_string");
     die();
 }
 
@@ -18,7 +29,7 @@ function checkSession()
 {
     if (session_status() == PHP_SESSION_NONE) {
         if (!session_start()) {
-            raiseError("There was an error starting a new session.");
+            pageError("There was an error starting a new session.");
         }
     }
 }
@@ -34,7 +45,7 @@ function getValidation($input_type, $var_name, $filter = null)
 {
     // Check if the variable exists
     if (!filter_has_var($input_type, $var_name)) {
-        raiseError("There was an error retrieving page identification");
+        pageError("There was an error retrieving page identification");
 
     }
 
@@ -49,13 +60,13 @@ function getValidation($input_type, $var_name, $filter = null)
             $output = filter_input($input_type, $var_name, $filter);
             break;
         default:
-            raiseError("There was an error specifying a filter type.");
+            pageError("There was an error specifying a filter type.");
             break;
     }
 
     // Check if output exists
     if (!$output) {
-        raiseError("There was an error during the filtering process.");
+        pageError("There was an error during the filtering process.");
     }
 
     return $output;

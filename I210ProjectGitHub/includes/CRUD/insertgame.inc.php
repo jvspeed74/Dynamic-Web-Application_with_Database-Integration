@@ -1,11 +1,16 @@
 <?php
 
+// Init functions
+require_once('../functions.inc.php');
+
 // Kill the script if POST data is not detected
 if (!$_POST) {
-    $error = "Direct access to this script is not allowed.";
-    header("Location: error.php?m=$error");
-    die();
+    scriptError("Direct access to this script is not allowed.");
 }
+
+// Init database
+require_once('../database.inc.php');
+
 
 // Check each POST variable and kill the script if any of them aren't detected.
 if (!filter_has_var(INPUT_POST, 'title') ||
@@ -19,14 +24,13 @@ if (!filter_has_var(INPUT_POST, 'title') ||
     !filter_has_var(INPUT_POST, 'price') ||
     !filter_has_var(INPUT_POST, 'description')) {
 
-    $error = "There was an error retrieving game details. Game cannot be added.";
-    header("Location: error.php?m=$error");
-    die();
+    scriptError("There was an error retrieving game details. Game cannot be added.");
 }
 
-// Initial Page Requirements
+
+
+// Init database
 require_once('../database.inc.php');
-require_once('../functions.inc.php');
 
 // Connect to Database
 connect();
@@ -73,7 +77,7 @@ $query = runQuery
 if (!$query) {
     $error = "Insertion failed: $connection->error.";
     disconnect();
-    header("Location: error.php?m=$error");
+    header("Location: ../../error.php?m=$error");
     die();
 }
 
@@ -82,4 +86,4 @@ $id = $connection->insert_id;
 
 // Disconnect from Database and return
 disconnect();
-header("Location: gamedetails.php?id=$id&m=insert");
+header("Location: ../../gamedetails.php?id=$id&m=insert");
