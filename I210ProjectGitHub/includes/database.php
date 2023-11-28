@@ -91,8 +91,8 @@ function raiseError($error_string)
 }
 
 /**
- * Search for games based on a search term.
- * @param string $searchTerm Search term.
+ * Search for games based on search terms.
+ * @param string $searchTerm Search term or terms.
  * @return array Search results.
  */
 function searchGames($searchTerm)
