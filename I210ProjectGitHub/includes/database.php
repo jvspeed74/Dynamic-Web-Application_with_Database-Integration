@@ -41,30 +41,30 @@ function connect($dbHost = 'localhost', $dbUser = 'phpuser', $dbPassword = 'phpu
  */
 function runQuery($sql_statement)
 {
-    global $connection, $queryData;
+    global $connection;
 
     if (is_null($connection)) {
         raiseError("There is not an active connection to the database.");
     }
 
-    $queryData = @$connection->query($sql_statement);
+    $result = @$connection->query($sql_statement);
 
     if ($connection->error) {
         raiseError("There was an issue running the query . $connection->error");
     }
 
-    return $queryData;
+    return $result;
 }
 
 /**
  * Fetch data from the query result.
+ * @param mixed $queryResult Query result.
  * @return array Fetched rows.
  */
-function fetchData()
+function fetchData($queryResult)
 {
-    global $queryData;
 
-    if (!$queryData) {
+    if (!$queryResult) {
         raiseError("There was an error fetching data from the query.");
     }
 
@@ -72,9 +72,9 @@ function fetchData()
 
     // Fetch data and store in an array
     $rows = [];
-    while ($row = $queryData->fetch_assoc()) {
-        if ($queryData->error) {
-            raiseError("There was an issue storing data . $queryData->error");
+    while ($row = $queryResult->fetch_assoc()) {
+        if ($queryResult->error) {
+            raiseError("There was an issue storing data . $queryResult->error");
         }
         $rows[] = $row;
     }
@@ -113,11 +113,8 @@ function searchGames($searchTerm)
 
     $sql = rtrim($sql, 'AND ');
 
-    // Run the query
-    runQuery($sql);
-
-    // Fetch and return the results
-    return fetchData();
+    // Run the query then fetch and return the results
+    return fetchData(runQuery($sql));
 }
 
 /**
