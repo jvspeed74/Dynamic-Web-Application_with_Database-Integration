@@ -15,17 +15,6 @@ html, body { min-height: 100%; }
     background-size: 60%
 }
 
-/* How the body of the page looks under nav aka gradient */
-body {
-    background-color: #345;
-    background-image: linear-gradient(to bottom, #0009, transparent);
-    color: #eee;
-    font-family: 'Lato', sans-serif;
-    font-size: 62.5%;
-    padding: 0 20px;
-    box-sizing: border-box;
-}
-
 /* lines appearing under the boxes */
 .links {
     background-color: #123;
@@ -69,13 +58,13 @@ head {
     position: relative;
 }
 
-.box{
+.box {
     position: absolute;
     top: 23%;
     left: 50%;
 }
 
-input{
+input {
     position: relative;
     display: inline;
     font-size: 20px;
