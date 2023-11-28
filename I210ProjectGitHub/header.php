@@ -4,7 +4,9 @@
 <!-- * Description: Header-->
 <!-- */-->
 <?php
-require("database.php");
+require_once('includes/database.php');
+require_once('includes/functions.php');
+
 
 checkSession();
 

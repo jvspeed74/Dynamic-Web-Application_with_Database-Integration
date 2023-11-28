@@ -7,11 +7,26 @@ if (!$_POST) {
     die();
 }
 
-// Initial Page Requirements
-require_once('includes/database.php');
+// Check each POST variable and kill the script if any of them aren't detected.
+if (!filter_has_var(INPUT_POST, 'title') ||
+    !filter_has_var(INPUT_POST, 'genre') ||
+    !filter_has_var(INPUT_POST, 'developer') ||
+    !filter_has_var(INPUT_POST, 'publisher') ||
+    !filter_has_var(INPUT_POST, 'rating') ||
+    !filter_has_var(INPUT_POST, 'esrb') ||
+    !filter_has_var(INPUT_POST, 'image') ||
+    !filter_has_var(INPUT_POST, 'release_date') ||
+    !filter_has_var(INPUT_POST, 'price') ||
+    !filter_has_var(INPUT_POST, 'description')) {
 
-// Retrieve game id
-$id = getValidation(INPUT_POST, "id");
+    $error = "There was an error retrieving game details. Game cannot be added.";
+    header("Location: error.php?m=$error");
+    die();
+}
+
+// Initial Page Requirements
+require_once('../database.php');
+require_once('../functions.php');
 
 // Connect to Database
 connect();
@@ -35,33 +50,36 @@ $description = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'de
 
 //Define MySQL insert statement
 /** @var $tableGames */
-runQuery
-("UPDATE $tableGames
-              SET 
-                  title='$title', 
-                  genre='$genre', 
-                  developer='$developer',
-                  publisher='$publisher', 
-                  rating='$rating', 
-                  esrb='$esrb', 
-                  image='$image', 
-                  release_date='$release_date', 
-                  price='$price',
-                  description='$description'
-              WHERE id=$id"
+$query = runQuery
+("INSERT INTO $tableGames
+              VALUES 
+                  (
+                  NULL, 
+                  '$title', 
+                  '$genre', 
+                  '$developer',
+                  '$publisher', 
+                  '$rating', 
+                  '$esrb', 
+                  '$image', 
+                  '$release_date', 
+                  '$price',
+                  '$description'
+                  )"
 );
 
 
-global $queryData;
 //Handle potential errors
-if (!$queryData) {
-    $error = "Update failed: $connection->error.";
+if (!$query) {
+    $error = "Insertion failed: $connection->error.";
     disconnect();
     header("Location: error.php?m=$error");
     die();
 }
 
+// Determine game id
+$id = $connection->insert_id;
 
 // Disconnect from Database and return
 disconnect();
-header("Location: gamedetails.php?id=$id&m=update");
+header("Location: gamedetails.php?id=$id&m=insert");

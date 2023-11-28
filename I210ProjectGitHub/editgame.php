@@ -1,7 +1,7 @@
 <?php
 
 $pageTitle = "Edit Game Details";
-require_once('includes/header.php');
+require_once('header.php');
 
 // Connect to Database
 connect();
@@ -11,15 +11,15 @@ $id = getValidation(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 
 // Run query that selects the required id
 /** @var $tableGames */
-runQuery("SELECT * FROM $tableGames WHERE id=$id");
+$query = runQuery("SELECT * FROM $tableGames WHERE id=$id");
 
 // Assign data to $rows
-$rows = fetchData();
+$rows = fetchData($query);
 ?>
 
     <section>
         <h2>Edit Game Details</h2>
-        <form action="updategame.php" method="post">
+        <form action="includes/CRUD/updategame.inc.php" method="post">
             <table cellspacing="0" cellpadding="3" style="border: 1px solid silver; padding:5px; margin-bottom: 10px">
                 <?php foreach ($rows as $row) { ?>
                 <tr>
@@ -116,4 +116,4 @@ $rows = fetchData();
 <?php
 // Disconnect from Database.
 disconnect();
-require_once 'includes/footer.php';
+require_once 'footer.php';

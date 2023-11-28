@@ -4,7 +4,8 @@
  * */
 
 // Initial Page Requirements
-require("includes/database.php");
+require_once('../database.php');
+require_once('../functions.php');
 
 // Check session status
 checkSession();

@@ -9,7 +9,7 @@
 
 // Initial Page Requirements
 $pageTitle = "Game 'n Go: Error";
-include("includes/header.php");
+include("header.php");
 
 // Declare default statement if getValidation fails
 $error='Default error.';
@@ -34,4 +34,4 @@ if (filter_has_var(INPUT_GET, "m")) {
 </table>
 <br><br><br><br><br>
 <?php
-require_once 'includes/footer.php';
+require_once 'footer.php';

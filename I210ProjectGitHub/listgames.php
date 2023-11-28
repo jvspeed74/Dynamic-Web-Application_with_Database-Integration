@@ -9,7 +9,7 @@
 
 // Initial Page Requirements
 $pageTitle = "Video Games";
-require 'includes/header.php';
+require 'header.php';
 
 
 // Connect to Database
@@ -17,10 +17,10 @@ connect();
 
 // Query SQL statement that selects all from games table
 /** @var $tableGames */
-runQuery("SELECT * FROM $tableGames");
+$query = runQuery("SELECT * FROM $tableGames");
 
 // Retrieve Data in $rows : array
-$rows = fetchData();
+$rows = fetchData($query);
 
 
 ?>

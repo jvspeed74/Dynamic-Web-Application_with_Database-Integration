@@ -3,7 +3,7 @@
 
 // Initial Page Requirements
 $pageTitle = "Checkout";
-require('includes/header.php');
+require('header.php');
 
 $_SESSION['cart'] = array();
 ?>
@@ -14,4 +14,4 @@ $_SESSION['cart'] = array();
 </p>
 
 <?php
-include("includes/footer.php");
+include("footer.php");
