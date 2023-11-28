@@ -25,8 +25,8 @@ if (!filter_has_var(INPUT_POST, 'title') ||
 }
 
 // Initial Page Requirements
-require_once('../database.php');
-require_once('../functions.php');
+require_once('../database.inc.php');
+require_once('../functions.inc.php');
 
 // Connect to Database
 connect();

@@ -2,7 +2,7 @@
 /**
  * Author: Jalen Vaughn
  * Date: 11/12/23
- * File: database.php
+ * File: database.inc.php
  * Description: Procedural-style functions for handling MySQL database interactions.
  */
 

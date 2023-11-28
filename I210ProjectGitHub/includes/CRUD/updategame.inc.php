@@ -8,8 +8,8 @@ if (!$_POST) {
 }
 
 // Initial Page Requirements
-require_once('../database.php');
-require_once('../functions.php');
+require_once('../database.inc.php');
+require_once('../functions.inc.php');
 
 // Retrieve game id
 $id = getValidation(INPUT_POST, "id");
