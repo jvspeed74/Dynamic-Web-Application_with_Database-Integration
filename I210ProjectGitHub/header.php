@@ -4,7 +4,7 @@
 <!-- * Description: Header-->
 <!-- */-->
 <?php
-require ("database.php");
+require("database.php");
 
 checkSession();
 

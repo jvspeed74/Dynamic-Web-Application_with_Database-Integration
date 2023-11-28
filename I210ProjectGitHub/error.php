@@ -9,7 +9,7 @@
 
 // Initial Page Requirements
 $pageTitle = "Game 'n Go: Error";
-include ("includes/header.php");
+include("includes/header.php");
 
 // Declare default statement if getValidation fails
 $error='Default error.';

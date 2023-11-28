@@ -7,7 +7,7 @@
 
 // Initial Page Requirements
 $pageTitle = "Game 'n Go";
-require ('includes/header.php');
+require('includes/header.php');
 ?>
 <!--
 Homepage: Provide info on what the website is, contributors, and available functions (i.e. searching, purchasing, etc)
