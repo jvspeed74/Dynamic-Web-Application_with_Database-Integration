@@ -1,15 +1,16 @@
 <?php
 
+// Init functions
+require_once('../functions.inc.php');
+
 // Kill the script if POST data is not detected
 if (!$_POST) {
-    $error = "Direct access to this script is not allowed.";
-    header("Location: error.php?m=$error");
-    die();
+    scriptError("Direct access to this script is not allowed.");
 }
 
-// Initial Page Requirements
+// Init database
 require_once('../database.inc.php');
-require_once('../functions.inc.php');
+
 
 // Retrieve game id
 $id = getValidation(INPUT_POST, "id");
@@ -56,11 +57,11 @@ $query = runQuery
 if (!$query) {
     $error = "Update failed: $connection->error.";
     disconnect();
-    header("Location: error.php?m=$error");
+    header("Location: ../../error.php?m=$error");
     die();
 }
 
 
 // Disconnect from Database and return
 disconnect();
-header("Location: gamedetails.php?id=$id&m=update");
+header("Location: ../../gamedetails.php?id=$id&m=update");
