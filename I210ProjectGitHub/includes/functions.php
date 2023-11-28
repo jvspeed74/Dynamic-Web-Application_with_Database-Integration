@@ -53,6 +53,7 @@ function getValidation($input_type, $var_name, $filter = null)
             break;
     }
 
+    // Check if output exists
     if (!$output) {
         raiseError("There was an error during the filtering process.");
     }
