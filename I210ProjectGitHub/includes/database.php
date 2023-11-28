@@ -43,7 +43,15 @@ function runQuery($sql_statement)
 {
     global $connection, $queryData;
 
-    $queryData = $connection->query($sql_statement);
+    if (is_null($connection)) {
+        raiseError("There is not an active connection to the database.");
+    }
+
+    $queryData = @$connection->query($sql_statement);
+
+    if ($connection->error) {
+        raiseError("There was an issue running the query . $connection->error");
+    }
 
     return $queryData;
 }
@@ -55,14 +63,19 @@ function runQuery($sql_statement)
 function fetchData()
 {
     global $queryData;
+
     if (!$queryData) {
         raiseError("There was an error fetching data from the query.");
     }
 
-    $rows = [];
+
 
     // Fetch data and store in an array
+    $rows = [];
     while ($row = $queryData->fetch_assoc()) {
+        if ($queryData->error) {
+            raiseError("There was an issue storing data . $queryData->error");
+        }
         $rows[] = $row;
     }
 
@@ -77,17 +90,6 @@ function disconnect()
 {
     global $connection;
     $connection->close();
-}
-
-/**
- * Raises errors and terminates the script.
- * @param string $error_string Error message that gets displayed.
- * @return void
- */
-function raiseError($error_string)
-{
-    header("Location: error.php?m$error_string");
-    die();
 }
 
 /**
@@ -126,6 +128,7 @@ function searchGames($searchTerm)
 function findItems($sql_statement)
 {
     global $cart;
+
     if (!is_array($cart))
         raiseError("There was an error initializing the cart correctly.");
 
@@ -134,45 +137,4 @@ function findItems($sql_statement)
     }
 
     return runQuery($sql_statement);
-}
-
-/**
- * Checks session status and initiates a session if there is not one already active.
- * @return void
- */
-function checkSession()
-{
-    if (session_status() == PHP_SESSION_NONE)
-        session_start();
-}
-
-/**
- * Perform input validation.
- * @param int $input_type Input type (INPUT_GET || INPUT_POST).
- * @param string $var_name Variable name.
- * @param int|null $filter Filter type (FILTER_SANITIZE_(STRING || NUMBER_INT || null).
- * @return mixed Validated input.
- */
-function getValidation($input_type, $var_name, $filter = null)
-{
-    // Check if the variable exists
-    if (!filter_has_var($input_type, $var_name)) {
-        raiseError("There was an error retrieving page identification");
-
-    }
-
-    // Check for what type of filter to use
-    switch ($filter) {
-        case null:
-            $output = filter_input($input_type, $var_name);
-            break;
-        case FILTER_SANITIZE_STRING:
-        case FILTER_SANITIZE_NUMBER_INT:
-            $output = filter_input($input_type, $var_name, $filter);
-            break;
-        default:
-            raiseError("There was an error specifying filter to use for validation.");
-    }
-
-    return $output;
 }
