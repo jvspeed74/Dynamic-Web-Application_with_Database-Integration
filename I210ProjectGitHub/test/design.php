@@ -20,9 +20,8 @@ if (isset($_SESSION['cart'])) {
 <head>
 
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="reset.css"/>
-    <link rel="stylesheet" type="text/css" href="main.css"/>
-    <title>Homepage</title>
+    <link rel="stylesheet" type="text/css" href="test.css"/>
+    <title>Game 'n Go</title>
 
 </head>
 
@@ -30,23 +29,23 @@ if (isset($_SESSION['cart'])) {
 <body>
 
     <!-- Nav Bar Starts -->
-    <nav class="links" style="--items: 5;">
+    <nav>
 
         <!-- Logo -->
-        <div class="logo"></div>
+        <div><a href="design.php"><img src="../www/img/logo.png" alt=""/></a></div>
 
 
-        <div class="navbar">
-            <ul class="navitems">
-                <li><a href="showcart.php"><?= $count ?> item(s) in cart</a></li>
+        <div>
+            <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="listgames.php">Games</a></li>
+                <li><a href="showcart.php">Cart: <?= $count ?> item(s)</a></li>
                 <li><a href="addgame.php">Add Games</a></li>
             </ul>
         </div>
 
         <!-- Search bar -->
-        <div class="box">
+        <div>
             <form action="searchresults.php" method="get">
                 <input type="text" name="q" placeholder="type..." size="40" required/>
                 <input type="submit" name="Submit" id="Submit" value="Search Game"/>
