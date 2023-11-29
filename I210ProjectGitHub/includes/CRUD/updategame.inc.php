@@ -8,12 +8,11 @@ if (!$_POST) {
     raiseError("Direct access to this script is not allowed.");
 }
 
-// Init database
-require_once('../database.inc.php');
-
-
 // Retrieve game id
 $id = getValidation(INPUT_POST, "id");
+
+// Init database
+require_once('../database.inc.php');
 
 // Connect to Database
 connect();
@@ -52,15 +51,6 @@ $query = runQuery
                   description='$description'
               WHERE id=$id"
 );
-
-//Handle potential errors
-if (!$query) {
-    $error = "Update failed: $connection->error.";
-    disconnect();
-    header("Location: ../../error.php?m=$error");
-    die();
-}
-
 
 // Disconnect from Database and return
 disconnect();

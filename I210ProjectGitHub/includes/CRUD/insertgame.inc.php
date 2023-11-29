@@ -8,10 +8,6 @@ if (!$_POST) {
     raiseError("Direct access to this script is not allowed.");
 }
 
-// Init database
-require_once('../database.inc.php');
-
-
 // Check each POST variable and kill the script if any of them aren't detected.
 if (!filter_has_var(INPUT_POST, 'title') ||
     !filter_has_var(INPUT_POST, 'genre') ||
@@ -26,8 +22,6 @@ if (!filter_has_var(INPUT_POST, 'title') ||
 
     raiseError("There was an error retrieving game details. Game cannot be added.");
 }
-
-
 
 // Init database
 require_once('../database.inc.php');
@@ -52,7 +46,7 @@ $release_date = $connection->real_escape_string(filter_input(INPUT_POST, 'releas
 $price = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'price', FILTER_SANITIZE_STRING)));
 $description = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING)));
 
-//Define MySQL insert statement
+// Declare MySQL insert statement
 /** @var $tableGames */
 $query = runQuery
 ("INSERT INTO $tableGames
@@ -71,15 +65,6 @@ $query = runQuery
                   '$description'
                   )"
 );
-
-
-//Handle potential errors
-if (!$query) {
-    $error = "Insertion failed: $connection->error.";
-    disconnect();
-    header("Location: ../../error.php?m=$error");
-    die();
-}
 
 // Determine game id
 $id = $connection->insert_id;
