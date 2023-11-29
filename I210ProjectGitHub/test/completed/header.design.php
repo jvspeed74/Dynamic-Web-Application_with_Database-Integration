@@ -20,7 +20,7 @@ if (isset($_SESSION['cart'])) {
 <head>
 
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../test.css"/>
+    <link rel="stylesheet" type="text/css" href="test.css"/>
     <title>Game 'n Go</title>
 
 </head>
