@@ -1,5 +1,5 @@
 <?php
-include("header.design.php");
+include("completed/header.design.php");
 ?>
     <!-- Page Specific Content Starts -->
     <section>
@@ -23,5 +23,5 @@ include("header.design.php");
     </section>
     <!-- Page Specific Content Ends -->
 <?php
-include("footer.design.php");
+include("completed/footer.design.php");
 ?>
