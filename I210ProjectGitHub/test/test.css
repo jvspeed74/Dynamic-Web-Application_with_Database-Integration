@@ -1,22 +1,22 @@
 body {
-       font-family: Arial, sans-serif;
-       margin: 0;
-       padding: 0;
-       background-color: #1a1a1a; /* Dark background color with a touch of black */
-       color: #fff; /* White text color */
-   }
-
-.container {
-    max-width: 1200px; /* Adjust the maximum width as needed */
-    margin: 0 auto; /* Center the container */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: #fff;
 }
 
-/* Header styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
 .header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, #003366, #000000); /* Darker ombre blue with black */
+    background: linear-gradient(to right, #003366, #000000);
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -28,13 +28,13 @@ body {
 .logo img {
     max-width: 20%;
     height: auto;
-    transition: transform 0.3s, filter 0.3s; /* Add transition for smooth effect */
+    transition: transform 0.3s, filter 0.3s;
 }
 
-/* Increase size on hover and add subtle RGB effect */
+
 .logo img:hover {
-    transform: scale(1.1); /* You can adjust the scale factor as needed */
-    filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.5)); /* Subtle cyan shadow on hover */
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.5));
 }
 
 .search form {
@@ -46,7 +46,7 @@ body {
     border: none;
     padding: 14px;
     background-color: rgba(255, 255, 255, 0.8);
-    margin-right: 0; /* Removed margin-right to eliminate space */
+    margin-right: 0;
     transition: background-color 0.3s;
 }
 
@@ -59,7 +59,7 @@ body {
     transition: background-color 0.3s;
 }
 
-/* Navbar styles */
+/* Navbar */
 .nav {
     background: linear-gradient(to right, #0066cc, #003366);
 }
@@ -87,15 +87,15 @@ body {
 .nav a:hover {
     background-color: #005bb5;
 }
-/* Center the h2 tag */
+
 h2 {
     text-align: center;
 }
 
-/* Footer styles */
+/* Footer */
 footer {
     text-align: center;
-    padding: 10px; /* Reduced padding for a smaller footer */
-    background: linear-gradient(to right, #003366, #000000); /* Darker ombre blue with black */
+    padding: 10px;
+    background: linear-gradient(to right, #003366, #000000);
     color: #fff;
 }
