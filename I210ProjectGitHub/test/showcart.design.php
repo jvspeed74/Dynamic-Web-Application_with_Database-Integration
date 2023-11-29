@@ -1,113 +1,32 @@
 <?php
-require ("../includes/database.php");
-
-checkSession();
-
-$count = 0;
-
-if (isset($_SESSION['cart'])) {
-    $cart = $_SESSION['cart'];
-
-    if ($cart) {
-        $count = array_sum($cart);
-    }
-}
-
-
+include("header.design.php");
 ?>
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="test.css"/>
-    <title>Game 'n Go</title>
-
-</head>
-
-<!-- Body Tag Starts -->
-<body>
-
-    <!-- Nav Bar Starts -->
-    <nav>
-
-        <!-- Logo -->
-
-        <div class="header">
-            <div class="logo">
-                <a href="index.design.php"><img src="../www/img/logo.png" alt="Logo"></a>
-            </div>
-
-            <div class="nav">
-                <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="listgames.php">Games</a></li>
-                    <li><a href="showcart.php">Cart: <?= $count ?> item(s)</a></li>
-                    <li><a href="addgame.php">Add Games</a></li>
-                </ul>
-            </div>
-
-            <!-- Search bar -->
-            <div class="search">
-                <form action="searchresults.php" method="get">
-                    <input type="text" name="q" placeholder="Search..." required>
-                    <input type="submit" name="Submit" id="Submit" value="Search Game">
-                </form>
-            </div>
-        </div>
-
-    </nav>
-    <!-- Nav Bar Ends -->
-
     <!-- Page Specific Content Starts -->
-    <body>
-    <!-- Page Specific Content Starts -->
-    <section class="welcome-section">
-        <h2>Welcome to Game 'n Go!</h2>
-        <p>This web site is a quick demo of minimum project requirements. The CSS document was omitted from this build due
-            to clarity issues. It is expected to be available
-            in time for Phase 3 of the project on 11/21/23
-        </p>
-
-        <div class="feature-list">
-            <p>This build includes these features:</p>
-            <ul>
-                <li>A homepage</li>
-                <li>A product page (dynamic) capable of displaying video games</li>
-                <li>A detail page for each individual video game entry</li>
-                <li>A basic search feature complementing a MySQL database</li>
-            </ul>
-        </div>
-
-        <div class="contributors-list">
-            <p>Contributors and their roles:</p>
-            <ul>
-                <li>Phillip Eilers: Initial Website Design; Database Ideation</li>
-                <li>Ayah Hineiti: Front-end Developer (HTML/CSS)</li>
-                <li>Jalen Vaughn: Back-end Developer (PHP/phpmyadmin)</li>
-            </ul>
-        </div>
-
-        <div class="tasks-list">
-            <p>Priority Tasks:</p>
-            <ul>
-                <li>Debug HTML/CSS Code</li>
-                <li>Convert HTML to PHP Web Page with modular design in mind.</li>
-                <li>Re-evaluate "handleError" function in "Class: Database" implementing standard exceptions that mysqli
-                    hosts.
-                </li>
-            </ul>
+  <section>
+        <h2>Shopping Cart</h2>
+        <div>
+            <table>
+                <tr>
+                    <td>Title</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Subtotal</td>
+                </tr>
+                    <tr>
+                        <td><a href="">Game Title</a></td>
+                        <td>$29.99</td>
+                        <td>3</td>
+                        <td>$109.23</td>
+                    </tr>
+            </table>
         </div>
     </section>
+
+    <div>
+        <input type="button" value="Checkout"/>
+        <h2>Your Total is ____</h2>
+    </div>
     <!-- Page Specific Content Ends -->
-
-    </body>
-<!--Body Tag ends-->
-
-<!-- Footer Tag Starts -->
-<footer>
-    <hr/>
-    &copy <?php echo date("Y") ?> Game n' Go. All Rights Reserved.
-</footer>
-
-</html>
+<?php
+include("footer.design.php");
+?>
