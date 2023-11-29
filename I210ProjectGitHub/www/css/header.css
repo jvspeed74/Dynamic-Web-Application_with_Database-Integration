@@ -1,104 +1,89 @@
-html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, pre {
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-}
-html, body { min-height: 100%; }
-
-.logo {
-    background-image: url("../img/logo.png");
-    background-size: 50%;
-    background-repeat: no-repeat;
-    background-position: center left;
+    background-color: #1a1a1a; /* Dark background color with a touch of black */
+    color: #fff; /* White text color */
 }
 
-.logo:hover {
-    background-size: 60%
+.container {
+    max-width: 1200px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the container */
 }
 
-/* lines appearing under the boxes */
-.links {
-    background-color: #123;
-    background-image: linear-gradient(to bottom, #0003, transparent);
-    border-bottom: 5px solid #0003;
-    box-shadow: 0 0 32px #0003;
-    font-size: 2em;
-    font-weight: 300;
+/* Header styles */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #003366, #000000); /* Darker ombre blue with black */
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo a {
     display: inline-block;
-    height: 80px;
-    margin: 20px;
-}
-.links > a {
-    color: #9ab;
-    padding: .75em;
-    text-align: center;
-    text-decoration: none;
-    transition: all .5s;
 }
 
-li{
-    display: inline;
-    margin: 25px auto;
-    text-decoration-color: white;
+.logo img {
+    max-width: 20%;
+    height: auto;
+    transition: transform 0.3s, filter 0.3s; /* Add transition for smooth effect */
 }
 
-
-
-
-
-/* The Magic */
-head {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-}
-.links {
-    display: grid;
-    grid-template-columns: repeat(var(--items), 1fr);
-    position: relative;
+/* Increase size on hover and add subtle RGB effect */
+.logo img:hover {
+    transform: scale(1.1); /* You can adjust the scale factor as needed */
+    filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.5)); /* Subtle cyan shadow on hover */
 }
 
-.box {
-    position: absolute;
-    top: 23%;
-    left: 50%;
+.search form {
+    display: flex;
+    align-items: center;
 }
 
-input {
-    position: relative;
-    display: inline;
-    font-size: 20px;
-    box-sizing: border-box;
-    transition: .5s;
+.search input[type="text"] {
     border: none;
-    outline: none;
-    padding: 0 20px;
-    border-radius: 25px 0 0 25px;
-    right: -50px;
-}
-input[type="text"]
-{
-    background: #fff;
-    width: 340px;
-    height: 40px;
+    padding: 14px;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-right: 0; /* Removed margin-right to eliminate space */
+    transition: background-color 0.3s;
 }
 
-input[type="submit"]
-{
-    position: relative;
-    border-radius: 0 25px 25px 0;
-    background-color: coral;
-    height: 40px;
-
+.search input[type="submit"] {
+    border: none;
+    padding: 14px;
+    background-color: #003366FF;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-li{
-    float: left;
-    color: #f2f2f2;
-    text-align: left;
-    padding: 20px 10px;
+/* Navbar styles */
+.nav {
+    background: linear-gradient(to right, #0066cc, #003366);
+}
+
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.nav li {
+    display: inline-block;
+}
+
+.nav a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
-    font-size: 20px;
-    margin: 6px;
+    transition: background-color 0.3s, color 0.3s;
+}
 
+.nav a:hover {
+    background-color: #005bb5;
 }

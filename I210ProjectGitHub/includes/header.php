@@ -30,6 +30,7 @@ if (isset($_SESSION['cart'])) {
     <link type="text/css" rel="stylesheet" href="www/css/media.css"/>
     <link type="text/css" rel="stylesheet" href="www/css/navitemsandsearch.css"/>
     <link type="text/css" rel="stylesheet" href="www/css/product.css"/>
+    <link type="text/css" rel="stylesheet" href="www/css/test.css"/>
     <title><?php /** @var $pageTitle */echo $pageTitle; ?></title>
 
     <?php
