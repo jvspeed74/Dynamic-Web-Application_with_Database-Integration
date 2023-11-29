@@ -1,5 +1,5 @@
 <?php
-require ("../includes/database.php");
+require("../includes/database.php");
 
 checkSession();
 
@@ -20,7 +20,7 @@ if (isset($_SESSION['cart'])) {
 <head>
 
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="test.css"/>
+    <link rel="stylesheet" type="text/css" href="../test.css"/>
     <title>Game 'n Go</title>
 
 </head>
@@ -34,7 +34,7 @@ if (isset($_SESSION['cart'])) {
 
         <div class="header">
             <div class="logo">
-                <a href="index.design.php"><img src="../www/img/logo.png" alt="Logo"></a>
+                <a href="../index.design.php"><img src="../../www/img/logo.png" alt="Logo"></a>
             </div>
 
             <div class="nav">
