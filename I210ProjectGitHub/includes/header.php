@@ -24,13 +24,8 @@ if (isset($_SESSION['cart'])) {
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="www/css/banner.css"/>
-    <link type="text/css" rel="stylesheet" href="www/css/global.css"/>
-    <link type="text/css" rel="stylesheet" href="www/css/header.css"/>
-    <link type="text/css" rel="stylesheet" href="www/css/media.css"/>
-    <link type="text/css" rel="stylesheet" href="www/css/navitemsandsearch.css"/>
-    <link type="text/css" rel="stylesheet" href="www/css/product.css"/>
     <link type="text/css" rel="stylesheet" href="www/css/test.css"/>
+
     <title><?php /** @var $pageTitle */echo $pageTitle; ?></title>
 
     <?php
@@ -40,7 +35,7 @@ if (isset($_SESSION['cart'])) {
     <!-- Nav Bar -->
 <body>
 <nav>
-    <nav class="links" style="--items: 5;">
+    <nav class="links" style="...">
         <div class="logo"></div>
         <div class="navbar">
             <ul class="navitems">

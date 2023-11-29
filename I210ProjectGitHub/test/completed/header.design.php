@@ -34,7 +34,7 @@ if (isset($_SESSION['cart'])) {
 
         <div class="header">
             <div class="logo">
-                <a href="../index.design.php"><img src="../../www/img/logo.png" alt="Logo"></a>
+                <a href="../index.design.php"><img src="logo.png" alt="Logo"></a>
             </div>
 
             <div class="nav">
