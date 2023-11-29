@@ -1,22 +1,26 @@
 <?php
 
 /**
- * Error handling sequence that disconnects from database, redirect user to the error page,
+ * Error handling sequence that disconnects from the database, redirect user to the error page,
  * and terminates the script
  * @param string $error_string Error message.
  * @return void
  */
 function raiseError($error_string)
 {
+        global $connection;
+
     // Disconnect from Database
-    disconnect();
+    if ($connection) {
+        disconnect();
+    }
 
     // Redirect user to correct page depending on location
-    if (file_exists("error.php")) {
-        header("Location: error.php?m$error_string");
+    if (file_exists('error.php')) {
+        header("Location: error.php?m=$error_string");
 
-    } elseif (file_exists("../../error.php")) {
-        header("Location: ../../error.php?m$error_string");
+    } elseif (file_exists('../../error.php')) {
+        header("Location: ../../error.php?m=$error_string");
     }
 
     // Terminate the script
