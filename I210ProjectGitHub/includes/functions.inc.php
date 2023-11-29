@@ -1,23 +1,25 @@
 <?php
-/**
- * Raises errors and terminates the script for root/main pages
- * @param string $error_string Error message that gets displayed.
- * @return void
- */
-function pageError($error_string)
-{
-    header("Location: error.php?m$error_string");
-    die();
-}
 
 /**
- * Raises errors and terminates the script for root/main pages
- * @param string $error_string Error message that gets displayed.
+ * Error handling sequence that disconnects from database, redirect user to the error page,
+ * and terminates the script
+ * @param string $error_string Error message.
  * @return void
  */
-function scriptError($error_string)
+function raiseError($error_string)
 {
-    header("Location: ../../error.php?m$error_string");
+    // Disconnect from Database
+    disconnect();
+
+    // Redirect user to correct page depending on location
+    if (file_exists("error.php")) {
+        header("Location: error.php?m$error_string");
+
+    } elseif (file_exists("../../error.php")) {
+        header("Location: ../../error.php?m$error_string");
+    }
+
+    // Terminate the script
     die();
 }
 
@@ -29,7 +31,7 @@ function checkSession()
 {
     if (session_status() == PHP_SESSION_NONE) {
         if (!session_start()) {
-            pageError("There was an error starting a new session.");
+            raiseError("There was an error starting a new session.");
         }
     }
 }
@@ -45,7 +47,7 @@ function getValidation($input_type, $var_name, $filter = null)
 {
     // Check if the variable exists
     if (!filter_has_var($input_type, $var_name)) {
-        pageError("There was an error retrieving page identification");
+        raiseError("There was an error retrieving page identification");
 
     }
 
@@ -60,13 +62,13 @@ function getValidation($input_type, $var_name, $filter = null)
             $output = filter_input($input_type, $var_name, $filter);
             break;
         default:
-            pageError("There was an error specifying a filter type.");
+            raiseError("There was an error specifying a filter type.");
             break;
     }
 
     // Check if output exists
     if (!$output) {
-        pageError("There was an error during the filtering process.");
+        raiseError("There was an error during the filtering process.");
     }
 
     return $output;

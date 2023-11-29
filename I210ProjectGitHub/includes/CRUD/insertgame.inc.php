@@ -5,7 +5,7 @@ require_once('../functions.inc.php');
 
 // Kill the script if POST data is not detected
 if (!$_POST) {
-    scriptError("Direct access to this script is not allowed.");
+    raiseError("Direct access to this script is not allowed.");
 }
 
 // Init database
@@ -24,7 +24,7 @@ if (!filter_has_var(INPUT_POST, 'title') ||
     !filter_has_var(INPUT_POST, 'price') ||
     !filter_has_var(INPUT_POST, 'description')) {
 
-    scriptError("There was an error retrieving game details. Game cannot be added.");
+    raiseError("There was an error retrieving game details. Game cannot be added.");
 }
 
 

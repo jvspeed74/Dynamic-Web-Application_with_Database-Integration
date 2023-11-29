@@ -30,7 +30,7 @@ function connect($dbHost = 'localhost', $dbUser = 'phpuser', $dbPassword = 'phpu
 
     // Check for connection errors
     if ($connection->connect_error) {
-        pageError("There was an error connecting to the database.");
+        raiseError("There was an error connecting to the database.");
     }
 }
 
@@ -44,13 +44,13 @@ function runQuery($sql_statement)
     global $connection;
 
     if (is_null($connection)) {
-        pageError("There is not an active connection to the database.");
+        raiseError("There is not an active connection to the database.");
     }
 
     $result = @$connection->query($sql_statement);
 
     if ($connection->error) {
-        pageError("There was an issue running the query . $connection->error");
+        raiseError("There was an issue running the query . $connection->error");
     }
 
     return $result;
@@ -65,7 +65,7 @@ function fetchData($queryResult)
 {
 
     if (!$queryResult) {
-        pageError("There was an error fetching data from the query.");
+        raiseError("There was an error fetching data from the query.");
     }
 
 
@@ -74,7 +74,7 @@ function fetchData($queryResult)
     $rows = [];
     while ($row = $queryResult->fetch_assoc()) {
         if ($queryResult->error) {
-            pageError("There was an issue storing data . $queryResult->error");
+            raiseError("There was an issue storing data . $queryResult->error");
         }
         $rows[] = $row;
     }
@@ -127,7 +127,7 @@ function findItems($sql_statement)
     global $cart;
 
     if (!is_array($cart))
-        pageError("There was an error initializing the cart correctly.");
+        raiseError("There was an error initializing the cart correctly.");
 
     foreach (array_keys($cart) as $id) {
         $sql_statement .= " OR id=$id";
