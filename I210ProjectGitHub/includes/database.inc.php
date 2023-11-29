@@ -69,7 +69,6 @@ function fetchData($queryResult)
     }
 
 
-
     // Fetch data and store in an array
     $rows = [];
     while ($row = $queryResult->fetch_assoc()) {
@@ -89,6 +88,7 @@ function fetchData($queryResult)
 function disconnect()
 {
     global $connection;
+    // Disconnect from Database
     $connection->close();
 }
 
