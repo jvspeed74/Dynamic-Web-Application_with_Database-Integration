@@ -3,7 +3,7 @@
  * Description: This script confirms deletion of book.
  */
 $pageTitle = "Confirm Game Deletion";
-require_once('includes/header.php');
+require_once('header.php');
 
 // Connect to Database
 connect();
@@ -13,10 +13,10 @@ $id = getValidation(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
 // Execute query with statement
 /** @var $tableGames */
-runQuery("SELECT * FROM $tableGames WHERE id=$id");
+$query = runQuery("SELECT * FROM $tableGames WHERE id=$id");
 
 // Get data associated with query
-$rows = fetchData();
+$rows = fetchData($query);
 ?>
     <section>
         <h2>Game Details</h2>
@@ -75,4 +75,4 @@ $rows = fetchData();
         </table>
     </section>
 <?php
-require_once('includes/footer.php');
+require_once('footer.php');

@@ -2,7 +2,7 @@
 /**
  * Author: Jalen Vaughn
  * Date: 11/12/23
- * File: database.php
+ * File: database.inc.php
  * Description: Procedural-style functions for handling MySQL database interactions.
  */
 
@@ -41,28 +41,40 @@ function connect($dbHost = 'localhost', $dbUser = 'phpuser', $dbPassword = 'phpu
  */
 function runQuery($sql_statement)
 {
-    global $connection, $queryData;
+    global $connection;
 
-    $queryData = $connection->query($sql_statement);
+    if (is_null($connection)) {
+        raiseError("There is not an active connection to the database.");
+    }
 
-    return $queryData;
+    $result = @$connection->query($sql_statement);
+
+    if ($connection->error) {
+        raiseError("There was an issue running the query . $connection->error");
+    }
+
+    return $result;
 }
 
 /**
  * Fetch data from the query result.
+ * @param mixed $queryResult Query result.
  * @return array Fetched rows.
  */
-function fetchData()
+function fetchData($queryResult)
 {
-    global $queryData;
-    if (!$queryData) {
+
+    if (!$queryResult) {
         raiseError("There was an error fetching data from the query.");
     }
 
-    $rows = [];
 
     // Fetch data and store in an array
-    while ($row = $queryData->fetch_assoc()) {
+    $rows = [];
+    while ($row = $queryResult->fetch_assoc()) {
+        if ($queryResult->error) {
+            raiseError("There was an issue storing data . $queryResult->error");
+        }
         $rows[] = $row;
     }
 
@@ -76,18 +88,8 @@ function fetchData()
 function disconnect()
 {
     global $connection;
+    // Disconnect from Database
     $connection->close();
-}
-
-/**
- * Raises errors and terminates the script.
- * @param string $error_string Error message that gets displayed.
- * @return void
- */
-function raiseError($error_string)
-{
-    header("Location: error.php?m$error_string");
-    die();
 }
 
 /**
@@ -111,11 +113,8 @@ function searchGames($searchTerm)
 
     $sql = rtrim($sql, 'AND ');
 
-    // Run the query
-    runQuery($sql);
-
-    // Fetch and return the results
-    return fetchData();
+    // Run the query then fetch and return the results
+    return fetchData(runQuery($sql));
 }
 
 /**
@@ -126,6 +125,7 @@ function searchGames($searchTerm)
 function findItems($sql_statement)
 {
     global $cart;
+
     if (!is_array($cart))
         raiseError("There was an error initializing the cart correctly.");
 
@@ -134,45 +134,4 @@ function findItems($sql_statement)
     }
 
     return runQuery($sql_statement);
-}
-
-/**
- * Checks session status and initiates a session if there is not one already active.
- * @return void
- */
-function checkSession()
-{
-    if (session_status() == PHP_SESSION_NONE)
-        session_start();
-}
-
-/**
- * Perform input validation.
- * @param int $input_type Input type (INPUT_GET || INPUT_POST).
- * @param string $var_name Variable name.
- * @param int|null $filter Filter type (FILTER_SANITIZE_(STRING || NUMBER_INT || null).
- * @return mixed Validated input.
- */
-function getValidation($input_type, $var_name, $filter = null)
-{
-    // Check if the variable exists
-    if (!filter_has_var($input_type, $var_name)) {
-        raiseError("There was an error retrieving page identification");
-
-    }
-
-    // Check for what type of filter to use
-    switch ($filter) {
-        case null:
-            $output = filter_input($input_type, $var_name);
-            break;
-        case FILTER_SANITIZE_STRING:
-        case FILTER_SANITIZE_NUMBER_INT:
-            $output = filter_input($input_type, $var_name, $filter);
-            break;
-        default:
-            raiseError("There was an error specifying filter to use for validation.");
-    }
-
-    return $output;
 }
