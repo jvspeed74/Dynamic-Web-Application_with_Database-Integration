@@ -26,8 +26,9 @@ $rows = fetchData($query);
 ?>
 
     <section>
+        <div class="container">
         <h2>Games in our store</h2>
-        <div>
+
             <table>
                 <tr>
                     <td>Title</td>
@@ -50,4 +51,4 @@ $rows = fetchData($query);
 
 <?php
 disconnect();
-include 'includes/footer.php';
+include 'footer.php';

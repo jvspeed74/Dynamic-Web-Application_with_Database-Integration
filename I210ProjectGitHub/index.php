@@ -1,49 +1,49 @@
 <?php
-/**
- * Author: Ayah Hineiti
- *  Date: 11/13/23
- * Description: Homepage
- */
-
-// Initial Page Requirements
-$pageTitle = "Game 'n Go";
-require('header.php');
+include("header.php");
 ?>
+    <!-- Page Specific Content Starts -->
+    <section class="welcome-section">
+        <div class="center-container">
+            <h2 class="welcome-text">Welcome to Game 'n Go!</h2>
+            <p>This web-site is a quick demo of minimum project requirements. The CSS document was omitted from this build due
+                to clarity issues. It is expected to be available
+                in time for Phase 3 of the project on 11/21/23
+            </p>
 
-<section>
-        <h2>Welcome to Game 'n Go: Draft 2 Edition</h2>
-        <p>This web site is a quick demo of project progress. Many elements are a work in progress with CSS design being
-            our group's main focus currently. We've actually branched off this build on 11/27/23 and started working
-            exclusively on the Final Draft.
-        </p>
+            <div class="feature-list">
+                <p>This build includes these features:</p>
+                <ul>
+                    <li>A homepage</li>
+                    <li>A product page (dynamic) capable of displaying video games</li>
+                    <li>A detail page for each individual video game entry</li>
+                    <li>A basic search feature complementing a MySQL database</li>
+                </ul>
+            </div>
 
-        <div>
-            <p>New Features in This Build:</p>
-            <ul>
-                <li>Add New Games to the Database</li>
-                <li>Update Existing Game Details</li>
-                <li>Delete Games from the Database</li>
-                <li>Shopping Cart Functionality</li>
-            </ul>
-        </div>
+            <div class="contributors-list">
+                <p>Contributors and their roles:</p>
+                <ul>
+                    <li>Phillip Eilers: Initial Website Design; Database Ideation</li>
+                    <li>Ayah Hineiti: Front-end Developer (HTML/CSS)</li>
+                    <li>Jalen Vaughn: Back-end Developer (PHP/phpmyadmin)</li>
+                </ul>
+            </div>
 
-        <div>
-            <p>Contributors and their roles:</p>
-            <ul>
-                <li>Jalen Vaughn: Project Manager; Back-end Developer; Software Architect</li>
-                <li>Ayah Hineiti: Front-end Developer; Mid-Project Website Designer</li>
-                <li>Phillip Eilers: Initial Website Design; Database Ideation; Data Specialist</li>
-            </ul>
-        </div>
-
-        <div>
-            <p>Stay Updated with our GitHub!</p>
-            <ul>
-                <li>You'll be able to view tasks, issues, and milestones</li>
-                <li><a href="https://github.com/jvspeed74/I210SharedProject/issues">GitHub Link</a></li>
-            </ul>
+            <div class="tasks-list">
+                <p>Priority Tasks:</p>
+                <ul>
+                    <li>Debug HTML/CSS Code</li>
+                    <li>Convert HTML to PHP Web Page with modular design in mind.</li>
+                    <li>Re-evaluate "handleError" function in "Class: Database" implementing standard exceptions that mysqli
+                        hosts.
+                    </li>
+                </ul>
+            </div>
         </div>
     </section>
 
+
+    <!-- Page Specific Content Ends -->
 <?php
-include('footer.php');
+include("footer.php");
+?>
