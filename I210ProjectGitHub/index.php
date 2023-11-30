@@ -13,6 +13,7 @@ include("header.php");
                     <li>Create/Update/Delete Items in Database</li>
                     <li>CSS Refinement</li>
                     <li>A Sitewide Logo</li>
+                    <li>Updated Error Handling</li>
                 </ul>
             </div>
 
