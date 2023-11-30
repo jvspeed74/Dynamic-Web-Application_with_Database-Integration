@@ -1,9 +1,8 @@
 <?php
 /*
- * Author: your name
- * Date: today's date
  * File: addgame.php
- * Description: This script displays a form to accept a new book's details.
+ * Description: This script displays a form to add game information that will be
+ * entered into the database when sent.
  *
  */
 $pageTitle = "Game 'n Go: Add game";
@@ -61,7 +60,7 @@ require_once 'header.php';
 
             <tr>
                 <td style="text-align: right">Rating:</td>
-                <td><input name="rating" type="number" required/></td>
+                <td><input name="rating" type="number" step="0.1" min="0.0" max="10.0" required/></td>
             </tr>
 
             <tr>
@@ -84,7 +83,8 @@ require_once 'header.php';
 
             <tr>
                 <td style="text-align: right">Release Date:</td>
-                <td><input name="release_date" type="text" size="100" required/></td>
+                <td><input name="release_date" type="text" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}"
+                           title="Please enter the release date in the format YYYY-MM-DD" required/></td>
             </tr>
 
             <tr>
