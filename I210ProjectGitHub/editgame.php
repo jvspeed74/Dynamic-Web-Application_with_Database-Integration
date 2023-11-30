@@ -19,7 +19,7 @@ $rows = fetchData($query);
 
     <section>
         <h2>Edit Game Details</h2>
-        <form action="includes/CRUD/updategame.inc.php" method="post">
+        <form action="includes/crud/updategame.inc.php" method="post">
             <table cellspacing="0" cellpadding="3" style="border: 1px solid silver; padding:5px; margin-bottom: 10px">
                 <?php foreach ($rows as $row) { ?>
                 <tr>

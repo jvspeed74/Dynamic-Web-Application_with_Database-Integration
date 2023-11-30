@@ -79,7 +79,7 @@ $rows = fetchData($query);
             ?>
             <tr>
                 <td colspan="2">
-                        <input type="button" onclick="window.location.href='includes/SHOPPING/addtocart.inc.php?id=<?= $id ?>';"
+                        <input type="button" onclick="window.location.href='includes/shopping/addtocart.inc.php?id=<?= $id ?>';"
                                value="Add to Cart"/>
                     <input type="button"
                            onclick="window.location.href='editgame.php?id=<?= $id ?>'"

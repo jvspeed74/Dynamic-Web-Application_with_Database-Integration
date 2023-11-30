@@ -10,7 +10,7 @@ require_once 'header.php';
 ?>
 
     <h2>Add New Game</h2>
-    <form action="includes/CRUD/insertgame.inc.php" method="post">
+    <form action="includes/crud/insertgame.inc.php" method="post">
 
         <table cellspacing="0" cellpadding="3" style="border: 1px solid silver; padding:5px; margin-bottom: 10px">
 
