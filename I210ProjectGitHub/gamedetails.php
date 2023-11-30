@@ -8,7 +8,7 @@
 
 // Initial Page Requirements
 $pageTitle = "Game Details";
-require('includes/header.php');
+require('header.php');
 
 // Connect to Database
 connect();
@@ -18,10 +18,10 @@ $id = getValidation(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
 // Execute query with statement
 /** @var $tableGames */
-runQuery("SELECT * FROM $tableGames WHERE id=$id");
+$query = runQuery("SELECT * FROM $tableGames WHERE id=$id");
 
 // Get data associated with query
-$rows = fetchData();
+$rows = fetchData($query);
 ?>
 
     <section>
@@ -79,7 +79,7 @@ $rows = fetchData();
             ?>
             <tr>
                 <td colspan="2">
-                        <input type="button" onclick="window.location.href='addtocart.php?id=<?= $id ?>';"
+                        <input type="button" onclick="window.location.href='includes/shopping/addtocart.inc.php?id=<?= $id ?>';"
                                value="Add to Cart"/>
                     <input type="button"
                            onclick="window.location.href='editgame.php?id=<?= $id ?>'"
@@ -96,4 +96,4 @@ $rows = fetchData();
     </section>
 <?php
 disconnect();
-include('includes/footer.php');
+include('footer.php');

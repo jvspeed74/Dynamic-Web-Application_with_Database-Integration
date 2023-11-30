@@ -3,8 +3,8 @@
  *
  * */
 
-// Initial Page Requirements
-require("includes/database.php");
+// Init functions
+require_once('../functions.inc.php');
 
 // Check session status
 checkSession();
@@ -22,5 +22,5 @@ $cart[$id] = (array_key_exists($id, $cart)) ? $cart[$id] + 1 : 1;
 $_SESSION['cart'] = $cart;
 
 // Redirect to showcart.php
-header('Location: showcart.php');
+header('Location: ../../showcart.php?m=itemadded');
 

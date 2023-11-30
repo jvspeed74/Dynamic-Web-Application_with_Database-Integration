@@ -10,7 +10,7 @@
 
 // Initial Page Requirements
 $pageTitle = "Game Details";
-require('includes/header.php');
+require('header.php');
 
 // Connect to Database
 connect();
@@ -21,15 +21,15 @@ $id = getValidation(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
 // Execute query with statement
 /** @var $tableGames */
-runQuery("DELETE FROM $tableGames WHERE id=$id");
+$query = runQuery("DELETE FROM $tableGames WHERE id=$id");
 
 // Error clause
-global $queryData;
-if (!$queryData) {
+
+if (!$query) {
     disconnect();
     raiseError("Deletion failed");
 }
 
 echo "<p>The game has been successfully deleted from the database.</p>";
 disconnect();
-require_once 'includes/footer.php';
+require_once 'footer.php';

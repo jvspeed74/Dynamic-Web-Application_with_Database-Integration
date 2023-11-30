@@ -1,17 +1,18 @@
 <?php
 
+// Init functions
+require_once('../functions.inc.php');
+
 // Kill the script if POST data is not detected
 if (!$_POST) {
-    $error = "Direct access to this script is not allowed.";
-    header("Location: error.php?m=$error");
-    die();
+    raiseError("Direct access to this script is not allowed.");
 }
-
-// Initial Page Requirements
-require_once('includes/database.php');
 
 // Retrieve game id
 $id = getValidation(INPUT_POST, "id");
+
+// Init database
+require_once('../database.inc.php');
 
 // Connect to Database
 connect();
@@ -33,9 +34,9 @@ $release_date = $connection->real_escape_string(filter_input(INPUT_POST, 'releas
 $price = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'price', FILTER_SANITIZE_STRING)));
 $description = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING)));
 
-//Define MySQL insert statement
+//Define MySQL Update statement
 /** @var $tableGames */
-runQuery
+$query = runQuery
 ("UPDATE $tableGames
               SET 
                   title='$title', 
@@ -51,17 +52,6 @@ runQuery
               WHERE id=$id"
 );
 
-
-global $queryData;
-//Handle potential errors
-if (!$queryData) {
-    $error = "Update failed: $connection->error.";
-    disconnect();
-    header("Location: error.php?m=$error");
-    die();
-}
-
-
 // Disconnect from Database and return
 disconnect();
-header("Location: gamedetails.php?id=$id&m=update");
+header("Location: ../../gamedetails.php?id=$id&m=update");

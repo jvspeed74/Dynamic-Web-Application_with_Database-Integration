@@ -8,7 +8,7 @@
 
 // Initial Page Requirements
 $pageTitle = "Search Results";
-require('includes/header.php');
+require('header.php');
 
 // Connect to Database
 connect();
@@ -48,4 +48,4 @@ $rows = searchGames($term);
     </section>
 <?php
 disconnect();
-include('includes/footer.php');
+include('footer.php');

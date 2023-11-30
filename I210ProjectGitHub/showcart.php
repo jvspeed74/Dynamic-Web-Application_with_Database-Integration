@@ -3,13 +3,13 @@
 
 // Initial Page Requirements
 $pageTitle = "Shopping Cart";
-require('includes/header.php');
+require('header.php');
 
 
 // If cart is empty in any session then run code
 if (!isset($_SESSION['cart']) || !$_SESSION['cart']) {
     echo "Your shopping cart is empty.<br><br>";
-    include('includes/footer.php');
+    include('footer.php');
     exit();
 }
 
@@ -21,10 +21,10 @@ connect();
 
 // Query items that are in found inside the cart
 /** @var $tableGames */
-findItems("SELECT id, title, price FROM $tableGames WHERE 0");
+$query = findItems("SELECT id, title, price FROM $tableGames WHERE 0");
 
 // Place query into an array
-$rows = fetchData();
+$rows = fetchData($query);
 
 
 ?>
@@ -68,4 +68,4 @@ $rows = fetchData();
 
 <?php
 disconnect();
-include('includes/footer.php');
+include('footer.php');

@@ -1,7 +1,7 @@
 <?php
 
 $pageTitle = "Edit Game Details";
-require_once('includes/header.php');
+require_once('header.php');
 
 // Connect to Database
 connect();
@@ -11,15 +11,15 @@ $id = getValidation(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 
 // Run query that selects the required id
 /** @var $tableGames */
-runQuery("SELECT * FROM $tableGames WHERE id=$id");
+$query = runQuery("SELECT * FROM $tableGames WHERE id=$id");
 
 // Assign data to $rows
-$rows = fetchData();
+$rows = fetchData($query);
 ?>
 
     <section>
         <h2>Edit Game Details</h2>
-        <form action="updategame.php" method="post">
+        <form action="includes/crud/updategame.inc.php" method="post">
             <table cellspacing="0" cellpadding="3" style="border: 1px solid silver; padding:5px; margin-bottom: 10px">
                 <?php foreach ($rows as $row) { ?>
                 <tr>
@@ -68,7 +68,7 @@ $rows = fetchData();
 
                 <tr>
                     <td style="text-align: right">Rating:</td>
-                    <td><input name="rating" value="<?php echo $row['rating'] ?>" type="number" required/></td>
+                    <td><input name="rating" value="<?php echo $row['rating'] ?>" step="0.1" min="0.0" max="10.0" type="number" required/></td>
                 </tr>
 
                 <tr>
@@ -91,7 +91,8 @@ $rows = fetchData();
 
                 <tr>
                     <td style="text-align: right">Release Date:</td>
-                    <td><input name="release_date" value="<?php echo $row['release_date'] ?>" type="text" size="100" required/></td>
+                    <td><input name="release_date" value="<?php echo $row['release_date'] ?>" type="text"
+                               pattern="\d{4}-\d{2}-\d{2}" title="Please enter the release date in the format YYYY-MM-DD" required/></td>
                 </tr>
 
                 <tr>
@@ -116,4 +117,4 @@ $rows = fetchData();
 <?php
 // Disconnect from Database.
 disconnect();
-require_once 'includes/footer.php';
+require_once 'footer.php';
