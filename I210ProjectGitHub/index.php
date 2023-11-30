@@ -29,7 +29,8 @@ include("header.php");
                 <p>Priority Tasks:</p>
                 <ul>
                     <li>Complete CSS Integration</li>
-                    <li>Replace Content in Homepage with game related elements</li>
+                    <li>Replace Content in Homepage with Game Related Elements</li>
+                    <li>Document All PHP Pages with their purpose.</li>
                 </ul>
             </div>
         </div>
