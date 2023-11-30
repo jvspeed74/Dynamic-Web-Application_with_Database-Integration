@@ -42,13 +42,14 @@ if (isset($_SESSION['cart'])) {
 <body>
 <nav>
     <nav class="links" style="--items: 5;">
-        <div class="logo"></div>
+        <div><a href="index.php">Logo Placeholder</a></div>
         <div class="navbar">
             <ul class="navitems">
-                <li><a href="showcart.php"><?= $count ?> item(s) in cart</a></li>
+
                 <li><a href="index.php">Home</a></li>
                 <li><a href="listgames.php">Games</a></li>
-                <li><a href="addgame.php">Add Games</a></li>
+                <li><a href="showcart.php">Cart: <?= $count ?></a></li>
+                <li><a href="addgame.php">Add</a></li>
             </ul>
 
         </div>
