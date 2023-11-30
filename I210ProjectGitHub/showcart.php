@@ -1,14 +1,10 @@
 <?php
-
-
-// Initial Page Requirements
-$pageTitle = "Shopping Cart";
 require('header.php');
 
 
 // If cart is empty in any session then run code
 if (!isset($_SESSION['cart']) || !$_SESSION['cart']) {
-    echo "Your shopping cart is empty.<br><br>";
+    echo "<div class='container'> Your shopping cart is empty.<br><br>";
     include('footer.php');
     exit();
 }
@@ -30,7 +26,8 @@ $rows = fetchData($query);
 ?>
 
     <!-- Display Shopping Cart Items -->
-    <section>
+
+    <div class="container">
         <h2>Shopping Cart</h2>
         <div>
             <table>
@@ -59,12 +56,12 @@ $rows = fetchData($query);
                 <?php } ?>
             </table>
         </div>
-    </section>
 
-    <div>
-        <input type="button" value="Checkout" onclick="window.location.href = 'checkout.php'"/>
-        <h2>Your Total is <?= $total ?></h2>
-    </div>
+
+        <div>
+            <input class="checkout-button" type="button" value="Checkout" onclick="window.location.href = 'checkout.php'"/>
+            <h2 class="total">Your Total is <?= $total ?></h2>
+        </div>
 
 <?php
 disconnect();

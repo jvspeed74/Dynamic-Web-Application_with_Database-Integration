@@ -7,7 +7,7 @@ require('header.php');
 
 $_SESSION['cart'] = array();
 ?>
-
+<div class="container">
 <h2>Checkout</h2>
 <p>Thank you for shopping with us. Your business is greatly appreciated. You will
     be notified once your items are shipped.

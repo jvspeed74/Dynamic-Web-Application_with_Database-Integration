@@ -142,7 +142,6 @@ h2 {
 footer {
     text-align: center;
     padding: 20px;
-    background: linear-gradient(to right, #003366, #000000);
     color: #fff;
     margin-top: 300px;
 
@@ -205,11 +204,22 @@ h2.total {
     margin-right: 10px;
 }
 
-/*The checkout button is different than the other buttons and requires it's own css - Ayah */
+/*
+The checkout button is different than the other buttons and requires it's own css
+- Ayah
+~~~~~~~~~~~~~~~~~~~~~~
+Old config for checkout-button were:
+position: absolute
+bottom: 5px
+right: 20px
+
+This made the button appear at the bottom right of the entire page separate of the shopping cart
+- JV
+*/
 .checkout-button {
-    position: absolute;
-    bottom: 5px;
-    right: 20px;
+    position: relative;
+    top: 80px;
+    left: 500px;
     background-color: #003366;
     color: #fff;
     padding: 10px 20px;
