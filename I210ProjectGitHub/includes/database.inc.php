@@ -72,9 +72,6 @@ function fetchData($queryResult)
     // Fetch data and store in an array
     $rows = [];
     while ($row = $queryResult->fetch_assoc()) {
-        if ($queryResult->error) {
-            raiseError("There was an issue storing data . $queryResult->error");
-        }
         $rows[] = $row;
     }
 
