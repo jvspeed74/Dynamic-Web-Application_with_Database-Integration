@@ -1,5 +1,8 @@
 <?php
+require("includes/functions.inc.php");
 require("includes/database.inc.php");
+
+
 
 checkSession();
 
