@@ -19,7 +19,7 @@ include("completed/header.design.php");
                         <td>Teen</td>
                         <td>$29.99</td>
                     </tr>
-                    <!-- Add more rows as needed -->
+
                 </table>
             </div>
         </div>
