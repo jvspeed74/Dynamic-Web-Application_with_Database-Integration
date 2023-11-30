@@ -68,7 +68,7 @@ $rows = fetchData($query);
 
                 <tr>
                     <td style="text-align: right">Rating:</td>
-                    <td><input name="rating" value="<?php echo $row['rating'] ?>" type="number" required/></td>
+                    <td><input name="rating" value="<?php echo $row['rating'] ?>" step="0.1" min="0.0" max="10.0" type="number" required/></td>
                 </tr>
 
                 <tr>
@@ -91,7 +91,8 @@ $rows = fetchData($query);
 
                 <tr>
                     <td style="text-align: right">Release Date:</td>
-                    <td><input name="release_date" value="<?php echo $row['release_date'] ?>" type="text" size="100" required/></td>
+                    <td><input name="release_date" value="<?php echo $row['release_date'] ?>" type="text"
+                               pattern="\d{4}-\d{2}-\d{2}" title="Please enter the release date in the format YYYY-MM-DD" required/></td>
                 </tr>
 
                 <tr>
