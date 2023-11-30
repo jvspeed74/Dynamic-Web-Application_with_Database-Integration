@@ -1,9 +1,48 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1a1a1a;
+    background: linear-gradient(to right, #2c3e50, #1a1a1a); /* Darker gradient background */
+    color: #fff; /* White text color */
+}
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+    25% {
+        box-shadow: 0 0 10px rgba(173, 216, 230, 0.8); /* Light Blue */
+    }
+    50% {
+        box-shadow: 0 0 10px rgba(135, 206, 250, 0.8); /* Sky Blue */
+    }
+    75% {
+        box-shadow: 0 0 10px rgba(173, 216, 230, 0.8); /* Light Blue */
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+}
+
+.welcome-section h2 {
+    font-size: 36px;
     color: #fff;
+    animation: glow 8s linear infinite; /* Adjust the animation duration as needed */
+}
+ /* This is the section of the page in the index, change text accordingly but do not change the tags as it will interfere with other code - Ayah */
+.center-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #003366;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.welcome-section p {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #ccc;
 }
 
 .container {
@@ -36,6 +75,7 @@ body {
     filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.5));
 }
 
+/* Search bar within header, should remain in the navbar */
 .search form {
     display: flex;
     align-items: center;
@@ -43,22 +83,25 @@ body {
 
 .search input[type="text"] {
     border: none;
-    padding: 14px;
+    padding: 16px 18px;
     background-color: rgba(255, 255, 255, 0.8);
     margin-right: 0;
     transition: background-color 0.3s;
+    color: #333;
+    width: 100%;
 }
 
 .search input[type="submit"] {
     border: none;
-    padding: 14px;
+    padding: 16px 18px;
     background-color: #003366FF;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 100%;
 }
 
-/* Navbar */
+/* Navbar items within the header */
 .nav {
     background: linear-gradient(to right, #0066cc, #003366);
     margin-left: auto; /* Move the navbar to the right */
@@ -102,6 +145,7 @@ footer {
 
 }
 
+/* This container should be used for both the shopping cart and the games list, do not change div classes - Ayah */
 .container {
     max-width: 600px;
     padding: 20px;
@@ -158,19 +202,19 @@ h2.total {
     margin-right: 10px;
 }
 
-input[type="button"] {
+/*The checkout button is different than the other buttons and requires it's own css - Ayah */
+.checkout-button {
+    position: absolute;
+    bottom: 5px;
+    right: 20px;
     background-color: #003366;
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
 }
 
-input[type="button"]:hover {
+.checkout-button:hover {
     background-color: #005bb5;
 }

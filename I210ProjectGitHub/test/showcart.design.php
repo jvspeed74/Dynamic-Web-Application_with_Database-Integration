@@ -18,7 +18,7 @@ include("completed/header.design.php");
                         <td>$29.99</td>
                         <td>3</td>
                         <td>$109.23</td>
-                        <input type="button" value="Checkout"/>
+                        <input type="button" class="checkout-button" value="Checkout"/>
                     </tr>
                 <div>
                     <h2 class="total">Your Total is ____</h2>
