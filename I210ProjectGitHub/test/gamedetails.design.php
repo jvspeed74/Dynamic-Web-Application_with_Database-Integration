@@ -25,7 +25,7 @@ $rows = fetchData($query);
 ?>
 
     <section>
-        <div class="container">
+        <div class="game-details-container">
         <h2>Game Details</h2>
         <table>
             <?php foreach ($rows as $row) { ?>
@@ -95,6 +95,7 @@ $rows = fetchData($query);
         </table>
         <div style="color: red; display: inline-block;"><?= $confirm ?></div>
     </section>
+    </div>
 <?php
 disconnect();
 include('completed/footer.design.php');
