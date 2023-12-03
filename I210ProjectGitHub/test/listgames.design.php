@@ -13,7 +13,7 @@ include("completed/header.design.php");
                     <td>Price</td>
                 </tr>
                 <tr>
-                    <td><a href="">Halo</a></td>
+                    <td><a href="gamedetails.design.php">Halo</a></td>
                     <td>FPS</td>
                     <td>Teen</td>
                     <td>$29.99</td>
