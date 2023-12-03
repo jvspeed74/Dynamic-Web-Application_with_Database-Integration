@@ -39,16 +39,16 @@ if (isset($_SESSION['cart'])) {
 
             <div class="nav">
                 <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="listgames.php">Games</a></li>
-                    <li><a href="showcart.php">Cart: <?= $count ?> item(s)</a></li>
-                    <li><a href="addgame.php">Add Games</a></li>
+                    <li><a href="index.design.php">Home</a></li>
+                    <li><a href="listgames.design.php">Games</a></li>
+                    <li><a href="showcart.design.php">Cart: <?= $count ?> item(s)</a></li>
+                    <li><a href="addgame.design.php">Add Games</a></li>
                 </ul>
             </div>
 
             <!-- Search bar -->
             <div class="search">
-                <form action="searchresults.php" method="get">
+                <form action="searchresults.design.php" method="get">
                     <input type="text" name="q" placeholder="Search..." required>
                     <input type="submit" name="Submit" id="Submit" value="Search Game">
                 </form>
