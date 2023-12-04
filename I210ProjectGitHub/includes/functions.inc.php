@@ -82,7 +82,6 @@ function checkLogin()
 {
     $login_status = '';
 
-
     if (isset($_SESSION['login_status'])) {
         $login_status = $_SESSION['login_status'];
     }

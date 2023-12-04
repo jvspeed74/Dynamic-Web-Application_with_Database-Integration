@@ -41,6 +41,11 @@ $query = runQuery
                   )"
 );
 
+# Handle potential error
+if (!$query) {
+    raiseError("There was an error inserting registry.");
+}
+
 # Disconnect from Database
 disconnect();
 
