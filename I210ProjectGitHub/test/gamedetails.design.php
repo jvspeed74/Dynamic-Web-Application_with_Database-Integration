@@ -8,13 +8,13 @@
 
 // Initial Page Requirements
 $pageTitle = "Game Details";
-require('header.php');
+require('completed/header.design.php');
 
 // Connect to Database
 connect();
 
 // Retrieve and validate game id
-$id = getValidation(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+$id = "1";
 
 // Execute query with statement
 /** @var $tableGames */
@@ -25,13 +25,13 @@ $rows = fetchData($query);
 ?>
 
     <section>
-        <div class="game-details-container"
+        <div class="game-details-container">
         <h2>Game Details</h2>
         <table>
             <?php foreach ($rows as $row) { ?>
                 <!-- Display Game image -->
                 <tr>
-                    <td colspan="2"><img src="<?= $row['image'] ?>" alt=""></td>
+                    <td colspan="2"><img src="../www/img/animalcrossingnewhorizons.jpg" alt=""></td>
                 </tr>
 
                 <!-- Display Game Attributes -->
@@ -97,4 +97,4 @@ $rows = fetchData($query);
     </section>
 <?php
 disconnect();
-include('footer.php');
+include('completed/footer.design.php');

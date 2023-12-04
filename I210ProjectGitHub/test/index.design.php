@@ -2,8 +2,8 @@
 include("completed/header.design.php");
 ?>
     <!-- Page Specific Content Starts -->
-    <section class="welcome-section">
-        <div class="center-container">
+    <section>
+        <div class="container">
             <h2 class="welcome-text">Welcome to Game 'n Go!</h2>
             <p>This web-site is a quick demo of minimum project requirements. The CSS document was omitted from this build due
                 to clarity issues. It is expected to be available

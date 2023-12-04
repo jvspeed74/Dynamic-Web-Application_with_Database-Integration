@@ -221,3 +221,144 @@ h2.total {
 .checkout-button:hover {
     background-color: #005bb5;
 }
+
+/*This is code for the Add Game page*/
+
+.form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: linear-gradient(to bottom, #0a0a0a, #003366);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 80px;
+}
+
+.form-container h2 {
+    text-align: center;
+    color: white;
+}
+
+.form-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #0a0a0a;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.form-container th, .form-container td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #003366;
+}
+
+.form-container th {
+    background-color: #003366;
+    color: #fff;
+}
+
+.form-container tr:nth-child(even) {
+    background-color: rgba(0, 51, 102, 0.5);
+}
+
+.form-container tr:hover {
+    background-color: rgba(0, 51, 102, 0.7);
+}
+
+.form-container input[type="text"],
+.form-container input[type="number"],
+.form-container select,
+.form-container textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #0a0a0a; /* Dark border color */
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+}
+
+.form-container input[type="submit"],
+.form-container input[type="button"] {
+    background-color: #005bb5;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.form-container input[type="submit"]:hover,
+.form-container input[type="button"]:hover {
+    background-color: #0072d6;
+}
+
+/*css for the game details page*/
+
+.game-details-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: linear-gradient(to bottom, black, #003366);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 80px;
+}
+
+.game-details-container h2 {
+    text-align: center;
+}
+
+.game-details-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.game-details-container td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #003366;
+}
+
+.game-details-container td:first-child {
+    font-weight: bold;
+    color: #66a3ff;
+}
+
+.game-details-container tr:nth-child(even) {
+    background-color: rgba(0, 51, 102, 0.5);
+}
+
+.game-details-container tr:hover {
+    background-color: rgba(0, 51, 102, 0.7);
+}
+
+.game-details-container input[type="button"] {
+    background-color: #005bb5;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.game-details-container input[type="button"]:hover {
+    background-color: #0072d6;
+}
+
+.game-details-container div[style^="color: red; display: inline-block;"] {
+    margin-top: 10px;
+    text-align: center;
+}

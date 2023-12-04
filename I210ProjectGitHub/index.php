@@ -5,38 +5,32 @@ include("header.php");
     <section class="welcome-section">
         <div class="center-container">
             <h2 class="welcome-text">Welcome to Game 'n Go!</h2>
-            <p>This web-site is a quick demo of minimum project requirements. The CSS document was omitted from this build due
-                to clarity issues. It is expected to be available
-                in time for Phase 3 of the project on 11/21/23
-            </p>
 
             <div class="feature-list">
-                <p>This build includes these features:</p>
+                <p>New Features in This Version:</p>
                 <ul>
-                    <li>A homepage</li>
-                    <li>A product page (dynamic) capable of displaying video games</li>
-                    <li>A detail page for each individual video game entry</li>
-                    <li>A basic search feature complementing a MySQL database</li>
+                    <li>Shopping Cart</li>
+                    <li>Create/Update/Delete Items in Database</li>
+                    <li>CSS Refinement</li>
+                    <li>A Sitewide Logo</li>
                 </ul>
             </div>
 
             <div class="contributors-list">
                 <p>Contributors and their roles:</p>
                 <ul>
-                    <li>Phillip Eilers: Initial Website Design; Database Ideation</li>
-                    <li>Ayah Hineiti: Front-end Developer (HTML/CSS)</li>
-                    <li>Jalen Vaughn: Back-end Developer (PHP/phpmyadmin)</li>
+                    <li>Jalen Vaughn: Project Manager; Back-end Developer; Software Architect</li>
+                    <li>Ayah Hineiti: Mid-Project Website Designer; Front-end Developer</li>
+                    <li>Phillip Eilers: Data Specialist; Database Ideation</li>
                 </ul>
             </div>
 
             <div class="tasks-list">
                 <p>Priority Tasks:</p>
                 <ul>
-                    <li>Debug HTML/CSS Code</li>
-                    <li>Convert HTML to PHP Web Page with modular design in mind.</li>
-                    <li>Re-evaluate "handleError" function in "Class: Database" implementing standard exceptions that mysqli
-                        hosts.
-                    </li>
+                    <li>Complete CSS Integration</li>
+                    <li>Replace Content in Homepage with Game Related Elements</li>
+                    <li>Document All PHP Pages with their purpose.</li>
                 </ul>
             </div>
         </div>
