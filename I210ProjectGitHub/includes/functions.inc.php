@@ -8,7 +8,7 @@
  */
 function raiseError($error_string)
 {
-        global $connection;
+    global $connection;
 
     // Disconnect from Database
     if ($connection) {
@@ -76,4 +76,30 @@ function getValidation($input_type, $var_name, $filter = null)
     }
 
     return $output;
+}
+
+function checkLogin()
+{
+    $login_status = '';
+
+
+    if (isset($_SESSION['login_status'])) {
+        $login_status = $_SESSION['login_status'];
+    }
+
+    if ($login_status == 1) {
+        echo "<p>You are logged in as " . $_SESSION['login'] . ".</p>";
+        echo "<a href='logout.php'>Log out</a><br />";
+        include('footer.php');
+        exit();
+    }
+    if ($login_status == 2) {
+        echo "Username or password invalid. Please try again.";
+    }
+    if ($login_status == 3) {
+        echo "<p>Thank you for registering with us. Your account has been created.</p>";
+        echo "<a href='logout.php'>Log out</a><br />";
+        include('footer.php');
+        exit();
+    }
 }

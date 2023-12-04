@@ -14,6 +14,7 @@ $tableEsrbs = 'esrbs';
 $tableGenres = 'genres';
 $tablePublishers = 'publishers';
 $tableDevelopers = 'developers';
+$tableUsers = 'users';
 
 /**
  * Connect to the database.

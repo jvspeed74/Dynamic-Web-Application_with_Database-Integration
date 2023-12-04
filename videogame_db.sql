@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 19, 2023 at 04:01 AM
+-- Generation Time: Dec 04, 2023 at 11:33 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -140,6 +140,32 @@ INSERT INTO `publishers` (`publisher`) VALUES
 ('Rockstar Games'),
 ('Xbox Game Studios');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `firstname` varchar(50) NOT NULL,
+  `lastname` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `role` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `username`, `password`, `role`) VALUES
+(1, 'Jalen', 'Vaughn', 'javaugh@iu.edu', 'jvspeed74', '123', 1),
+(2, 'Ayah', 'Hineiti', 'ayhine@iu.edu', 'ayhine', '321', 1),
+(3, 'Phillip', 'Eilers', 'pceilers@iu.edu', 'pceilers', '231', 1),
+(4, 'Noah', 'Clark', 'noahclark@gmail.com', 'nclark', 'meowmeowman67', 2);
+
 --
 -- Indexes for dumped tables
 --
@@ -179,6 +205,12 @@ ALTER TABLE `publishers`
   ADD PRIMARY KEY (`publisher`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -186,7 +218,13 @@ ALTER TABLE `publishers`
 -- AUTO_INCREMENT for table `games`
 --
 ALTER TABLE `games`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
