@@ -3,7 +3,7 @@ include("header.php");
 ?>
     <!-- Page Specific Content Starts -->
     <section class="welcome-section">
-        <div class="center-container">
+        <div class="container">
             <h2 class="welcome-text">Welcome to Game 'n Go!</h2>
 
             <div class="feature-list">
