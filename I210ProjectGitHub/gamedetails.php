@@ -25,6 +25,7 @@ $rows = fetchData($query);
 ?>
 
     <section>
+        <div class="game-details-container"
         <h2>Game Details</h2>
         <table>
             <?php foreach ($rows as $row) { ?>

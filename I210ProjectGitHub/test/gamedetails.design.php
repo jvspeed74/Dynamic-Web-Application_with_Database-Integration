@@ -95,7 +95,6 @@ $rows = fetchData($query);
         </table>
         <div style="color: red; display: inline-block;"><?= $confirm ?></div>
     </section>
-    </div>
 <?php
 disconnect();
 include('completed/footer.design.php');
