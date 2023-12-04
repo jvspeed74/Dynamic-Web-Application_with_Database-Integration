@@ -46,6 +46,8 @@ if (isset($_SESSION['cart'])) {
                     <li><a href="listgames.php">Games</a></li>
                     <li><a href="showcart.php">Cart: <?= $count ?> item(s)</a></li>
                     <li><a href="addgame.php">Add Games</a></li>
+                    <li><a href="signup.php">Sign Up</a></li>
+                    <li><a href="login.php">Login</a></li>
                 </ul>
             </div>
 
