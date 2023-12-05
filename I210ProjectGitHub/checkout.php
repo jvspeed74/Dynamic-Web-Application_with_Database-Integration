@@ -5,6 +5,12 @@
 $pageTitle = "Checkout";
 require('header.php');
 
+// Prompt user to login in order to checkout
+if (!isset($_SESSION['login'])) {
+ header("Location: login.php");
+exit();
+}
+
 $_SESSION['cart'] = array();
 ?>
 <div class="container">

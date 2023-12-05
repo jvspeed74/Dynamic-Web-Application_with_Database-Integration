@@ -5,11 +5,11 @@
  * entered into the database when sent.
  *
  */
-$pageTitle = "Game 'n Go: Add game";
+$pageTitle = "Add game";
 require_once 'header.php';
 ?>
     <section>
-        <div class="form-container"
+        <div class="form-container">
         <h2>Add New Game</h2>
         <form action="includes/crud/insertgame.inc.php" method="post">
 

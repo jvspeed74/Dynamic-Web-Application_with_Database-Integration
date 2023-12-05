@@ -22,6 +22,7 @@ $rows = searchGames($term);
 // Display the results
 ?>
     <section>
+        <div class="container">
         <h2>Games in our store - <?= count($rows) ?> Result(s)</h2>
         <?php if (count($rows) == 0) {
             exit("No games were found in the search.");

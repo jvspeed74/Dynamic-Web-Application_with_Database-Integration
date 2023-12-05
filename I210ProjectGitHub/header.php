@@ -1,4 +1,7 @@
 <?php
+/**
+ * @var string $pageTitle
+ */
 require("includes/functions.inc.php");
 require("includes/database.inc.php");
 
@@ -24,7 +27,7 @@ if (isset($_SESSION['cart'])) {
 
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="www/css/main.css"/>
-    <title>Game 'n Go</title>
+    <title>Game 'n Go: <?php echo $pageTitle ?></title>
 
 </head>
 <!-- Body Tag Starts -->
@@ -45,9 +48,26 @@ if (isset($_SESSION['cart'])) {
                     <li><a href="index.php">Home</a></li>
                     <li><a href="listgames.php">Games</a></li>
                     <li><a href="showcart.php">Cart: <?= $count ?> item(s)</a></li>
-                    <li><a href="addgame.php">Add Games</a></li>
-                    <li><a href="signup.php">Sign Up</a></li>
-                    <li><a href="login.php">Login</a></li>
+
+                    <?php
+                    # Nobody logged in
+                    if (!$_SESSION['login_status']) {
+                            echo "<li><a href='signup.php'>Sign Up</a></li>";
+                            echo "<li><a href='login.php'>Login</a></li>";
+                    }
+
+                    # Admin detected
+                    if ($_SESSION['role'] == 1) {
+                        echo "<li><a href='addgame.php'>Add Games</a></li>";
+                    }
+
+                    # User logged in
+                    if ($_SESSION['login_status']) {
+                        echo "<li><a href='logout.php'>Logout</a></li>";
+                    }
+                    ?>
+
+
                 </ul>
             </div>
 

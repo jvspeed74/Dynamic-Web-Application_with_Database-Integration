@@ -1,4 +1,5 @@
 <?php
+$pageTitle = "Cart";
 require('header.php');
 
 
