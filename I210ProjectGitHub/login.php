@@ -10,8 +10,8 @@ checkLogin();
     <h2>Login to your account</h2>
     <h3><?php echo $message ?></h3>
     <form action="includes/authentication/login.inc.php" method="post">
-        <input type="text" name="username" placeholder="Username..." required/>
-        <input type="password" name="password" placeholder="Password..." required/>
+        <input type="text" name="username" maxlength="50" placeholder="Username..." required/>
+        <input type="password" name="password" maxlength="255" placeholder="Password..." required/>
         <button type="submit" name="Submit">Login</button>
     </form>
         <p><a href="signup.php">Create an account</a>

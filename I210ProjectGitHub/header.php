@@ -74,7 +74,7 @@ if (isset($_SESSION['cart'])) {
             <!-- Search bar -->
             <div class="search">
                 <form action="searchresults.php" method="get">
-                    <input type="text" name="q" placeholder="Search..." required>
+                    <input type="text" name="q" maxlength="50" placeholder="Search..." required>
                     <input type="submit" name="Submit" id="Submit" value="Search Game">
                 </form>
             </div>

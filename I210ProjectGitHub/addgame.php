@@ -22,7 +22,7 @@ if ($_SESSION['role'] != 1) {
 
                 <tr>
                     <td style="text-align: right; width: 100px">Title:</td>
-                    <td><input name="title" type="text" size="50" required/></td>
+                    <td><input name="title" type="text" maxlength="50" size="50" required/></td>
                 </tr>
 
                 <tr>
@@ -84,7 +84,7 @@ if ($_SESSION['role'] != 1) {
 
                 <tr>
                     <td style="text-align: right">Image:</td>
-                    <td><input name="image" type="text" size="100" required/></td>
+                    <td><input name="image" type="text" maxlength="100" size="100" required/></td>
                 </tr>
 
                 <tr>
@@ -100,7 +100,7 @@ if ($_SESSION['role'] != 1) {
 
                 <tr>
                     <td style="text-align: right; vertical-align: top">Description:</td>
-                    <td><textarea name="description" rows="6" cols="65"></textarea></td>
+                    <td><textarea name="description" maxlength="5000" rows="6" cols="65"></textarea></td>
                 </tr>
 
             </table>
