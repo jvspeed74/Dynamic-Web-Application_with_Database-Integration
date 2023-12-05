@@ -1,4 +1,5 @@
 <?php
+$pageTitle = "Logout";
 include ('header.php');
 
 # start session

@@ -5,7 +5,7 @@
  * entered into the database when sent.
  *
  */
-$pageTitle = "Game 'n Go: Add game";
+$pageTitle = "Add game";
 require_once 'header.php';
 ?>
     <section>

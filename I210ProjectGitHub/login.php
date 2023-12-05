@@ -1,4 +1,5 @@
 <?php
+$pageTitle = "Login";
 include("header.php");
 $message = "Please enter your username and password to login.";
 checkLogin();

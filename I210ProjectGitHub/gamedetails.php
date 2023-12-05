@@ -7,6 +7,7 @@
  */
 
 // Initial Page Requirements
+$pageTitle = "Game Details";
 require('header.php');
 
 // Connect to Database

@@ -1,4 +1,5 @@
 <?php
+$pageTitle = "Home";
 include("header.php");
 ?>
     <!-- Page Specific Content Starts -->
