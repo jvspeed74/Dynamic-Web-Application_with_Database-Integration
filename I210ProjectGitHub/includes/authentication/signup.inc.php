@@ -3,7 +3,7 @@
  * @var $tableUsers
  */
 # Declare required functions
-require_once ("../functions.inc.php");
+require_once("../functions.inc.php");
 
 // Kill the script if POST data is not detected
 if (!$_POST) {
@@ -11,7 +11,7 @@ if (!$_POST) {
 }
 
 # Declare required database and connection
-require_once ("../database.inc.php");
+require_once("../database.inc.php");
 connect();
 global $connection;
 
@@ -21,9 +21,38 @@ $lastname = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'lastn
 $email = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL)));
 $username = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING)));
 $password = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING)));
-
-//set user's role
 $role = 2;  //regular user
+
+# Before inserting, check if user already exists in the database
+// Run query matching the username
+$query = runQuery
+("SELECT * 
+              FROM $tableUsers
+              WHERE username='$username'
+              ");
+
+// If username already exists return back to signup screen
+if ($query->fetch_assoc()) {
+    $message = "Username already exists! Please choose a different one.";
+    header("Location: ../../signup.php?m=$message");
+    exit();
+}
+
+# Before inserting, check if email already exists in the database
+// Run query matching the username
+$query = runQuery
+("SELECT * 
+              FROM $tableUsers
+              WHERE email='$email'
+              ");
+
+// If email already exists return back to signup screen
+if ($query->fetch_assoc()) {
+    $message = "Email already exists! Please choose a different one.";
+    header("Location: ../../signup.php?m=$message");
+    exit();
+}
+
 
 // Hash password
 $password_encrypted = password_hash($password, PASSWORD_DEFAULT);

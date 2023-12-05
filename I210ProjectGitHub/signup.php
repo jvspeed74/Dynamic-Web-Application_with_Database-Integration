@@ -2,6 +2,12 @@
 $pageTitle = "Signup";
 include("header.php");
 $message = "Please enter your credentials to sign up.";
+
+// Validate potential error string
+if (filter_has_var(INPUT_GET, "m")) {
+    $message = filter_input(INPUT_GET, 'm', FILTER_SANITIZE_STRING);
+}
+
 ?>
 <!--Page Specific Content Starts-->
 <section>
