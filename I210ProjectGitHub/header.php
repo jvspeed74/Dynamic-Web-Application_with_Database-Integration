@@ -9,6 +9,14 @@ require("includes/database.inc.php");
 // Declare session var
 checkSession();
 
+if (!isset($_SESSION['login_status'])) {
+    $_SESSION['login_status'] = null;
+}
+
+if (!isset($_SESSION['role'])) {
+    $_SESSION['role'] = null;
+}
+
 // Declare amount of items in cart through session var
 $count = 0;
 if (isset($_SESSION['cart'])) {
