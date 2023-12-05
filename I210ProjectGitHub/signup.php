@@ -6,7 +6,7 @@ $message = "Please enter your credentials to sign up.";
 <section>
     <div class="container">
         <h2>Create an account</h2>
-        <h3><?php $message ?></h3>
+        <h3><?php echo $message ?></h3>
         <form action="includes/authentication/signup.inc.php" method="post">
             <input type="text" name="firstname" placeholder="Firstname..." required/>
             <input type="text" name="lastname" placeholder="Lastname..." required/>
