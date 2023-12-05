@@ -1,4 +1,7 @@
 <?php
+/**
+ * Shows all the games that are in the user's cart
+ */
 $pageTitle = "Cart";
 require('header.php');
 

@@ -122,14 +122,18 @@ function searchGames($searchTerm)
  */
 function findItems($sql_statement)
 {
+    // Declare the cart variable
     global $cart;
 
+    // If cart isn't an array, display error
     if (!is_array($cart))
         raiseError("There was an error initializing the cart correctly.");
 
+    // Build sql statement to retrieve all items in cart from db
     foreach (array_keys($cart) as $id) {
         $sql_statement .= " OR id=$id";
     }
 
+    // run the query with the complete sql statement
     return runQuery($sql_statement);
 }

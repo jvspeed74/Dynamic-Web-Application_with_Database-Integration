@@ -1,4 +1,7 @@
 <?php
+/**
+ * Updates a game in the games table
+ */
 
 // Init functions
 require_once('../functions.inc.php');
@@ -14,15 +17,11 @@ $id = getValidation(INPUT_POST, "id");
 // Init database
 require_once('../database.inc.php');
 
-// Connect to Database
+// Connect to Database and declare connection
 connect();
-
-/* Retrieve game details.
- * For security purpose, call the built-in function real_escape_string to
- * escape special characters in a string for use in SQL statement.
- */
 global $connection;
 
+// Securely grab the information
 $title = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING)));
 $genre = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'genre', FILTER_DEFAULT)));
 $developer = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'developer', FILTER_DEFAULT)));

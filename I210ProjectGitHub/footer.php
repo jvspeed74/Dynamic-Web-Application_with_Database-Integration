@@ -1,4 +1,4 @@
-
+<!--Footer split from content pages-->
     </body>
 <!--Body Tag ends-->
 

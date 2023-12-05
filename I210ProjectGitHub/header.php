@@ -1,5 +1,6 @@
 <?php
 /**
+ * Header split from page content. Includes navigation bar
  * @var string $pageTitle
  */
 require("includes/functions.inc.php");

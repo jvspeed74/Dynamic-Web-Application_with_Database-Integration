@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * checkout.php: Displays the checkout page for user to empty their carts
+ */
 
 // Initial Page Requirements
 $pageTitle = "Checkout";

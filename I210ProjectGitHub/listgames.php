@@ -3,7 +3,7 @@
  * Author: Jalen Vaughn
  *  Date: 11/15/23
  * File: listbooks.php
- * Description: this script lists all books from the books table.
+ * Description: this script lists all games from the game table.
  *
  */
 

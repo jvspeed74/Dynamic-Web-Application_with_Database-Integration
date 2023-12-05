@@ -1,4 +1,7 @@
 <?php
+/**
+ * Logs users out of their accounts
+ */
 $pageTitle = "Logout";
 include ('header.php');
 
