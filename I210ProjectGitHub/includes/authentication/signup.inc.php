@@ -10,10 +10,11 @@ if (!$_POST) {
     raiseError("Direct access to this script is not allowed.");
 }
 
-# Declare required database and connection
+# Declare required database, connection, and session
 require_once("../database.inc.php");
 connect();
 global $connection;
+checkSession();
 
 # Set attributes from POST
 $firstname = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING)));
@@ -33,8 +34,8 @@ $query = runQuery
 
 // If username already exists return back to signup screen
 if ($query->fetch_assoc()) {
-    $message = "Username already exists! Please choose a different one.";
-    header("Location: ../../signup.php?m=$message");
+    $_SESSION['signup_status'] = 1;
+    header("Location: ../../signup.php");
     exit();
 }
 
@@ -48,8 +49,8 @@ $query = runQuery
 
 // If email already exists return back to signup screen
 if ($query->fetch_assoc()) {
-    $message = "Email already exists! Please choose a different one.";
-    header("Location: ../../signup.php?m=$message");
+    $_SESSION['signup_status'] = 2;
+    header("Location: ../../signup.php");
     exit();
 }
 
