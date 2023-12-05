@@ -4,7 +4,12 @@
  */
 # Declare required functions
 require_once("../functions.inc.php");
-require_once ("../database.inc.php");
+
+if (!$_POST) {
+    raiseError("Direct Access to the script is forbidden.");
+}
+
+require_once("../database.inc.php");
 
 # Get db connection
 connect();
@@ -22,10 +27,16 @@ $username = $password = "";
 # retrieve username and password
 if (isset($_POST['username'])) {
     $username = $connection->real_escape_string(trim($_POST['username']));
+    if (isset($_POST['password'])) {
+        $password = $connection->real_escape_string(trim($_POST['password']));
+    } else {
+         raiseError("There was an issue identifying your password");
+    }
+} else {
+    raiseError("There was an issue identifying your username");
+
 }
-if (isset($_POST['password'])) {
-    $password = $connection->real_escape_string(trim($_POST['password']));
-}
+
 
 $query = runQuery
 ("SELECT * 

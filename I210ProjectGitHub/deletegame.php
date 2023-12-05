@@ -5,6 +5,11 @@
 $pageTitle = "Confirm Game Deletion";
 require_once('header.php');
 
+# Deny entry for unauthorized users
+if ($_SESSION['role'] != 1) {
+    raiseError("Direct Access to this page is forbidden");
+}
+
 // Connect to Database
 connect();
 

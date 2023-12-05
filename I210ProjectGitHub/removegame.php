@@ -12,6 +12,11 @@
 $pageTitle = "Game Details";
 require('header.php');
 
+# Deny entry for unauthorized users
+if ($_SESSION['role'] != 1) {
+    raiseError("Direct Access to this page is forbidden");
+}
+
 // Connect to Database
 connect();
 
@@ -24,7 +29,6 @@ $id = getValidation(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $query = runQuery("DELETE FROM $tableGames WHERE id=$id");
 
 // Error clause
-
 if (!$query) {
     disconnect();
     raiseError("Deletion failed");
