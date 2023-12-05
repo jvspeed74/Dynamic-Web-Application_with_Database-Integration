@@ -33,7 +33,10 @@ function raiseError($error_string)
  */
 function checkSession()
 {
+    # If session doesn't exist
     if (session_status() == PHP_SESSION_NONE) {
+
+        # If session fails to start call an error
         if (!session_start()) {
             raiseError("There was an error starting a new session.");
         }
@@ -90,12 +93,17 @@ function getValidation($input_type, $var_name, $filter = null)
  */
 function checkLogin()
 {
+    // Declare variable that will hold the value for session[login status]
     $login_status = '';
 
+    # If session variable set
     if (isset($_SESSION['login_status'])) {
+
+        # let variable hold the value for session
         $login_status = $_SESSION['login_status'];
     }
 
+    # Success
     if ($login_status == 1) {
         echo "<div class='form-container'>";
         echo "<p>You are logged in as " . $_SESSION['login'] . ".</p>";
@@ -103,12 +111,16 @@ function checkLogin()
         include('footer.php');
         exit();
     }
+
+    # Error
     if ($login_status == 2) {
         echo "<div class='form-container'>";
         echo "Username or password invalid. Please try again.";
         echo "</div>";
         $_SESSION["login_status"] = '';
     }
+
+    # New account
     if ($login_status == 3) {
         echo "<div class='form-container'>";
         echo "<p>Thank you for registering with us. Your account has been created.</p>";
@@ -118,31 +130,51 @@ function checkLogin()
         $_SESSION["login_status"] = 1;
         exit();
     }
+
+    # No account; trying to access checkout.php
     if ($login_status == 4) {
         echo "<div class='form-container'>";
         echo "Login to your account to checkout your items.";
         echo "</div>";
         $_SESSION["login_status"] = '';
     }
+    # If none, run page without any errors
 }
 
+/**
+ * Checks signup status from $_SESSION and displays the page based on $signup_status
+ * @return void
+ * @var $signup_status = 2 Signup Failed: Email taken.
+ * Some conditions reset $signup_status to empty if they only should be displayed once.
+ * @var $signup_status = '' Pass
+ * @var $signup_status = 1 Signup Failed: Username taken.
+ */
 function checkSignup()
 {
+    // Declare variable that will hold the value for session[signup status]
     $signup_status = '';
 
+    # If session variable set
     if (isset($_SESSION['signup_status'])) {
+
+        # let signup status hold value for session
         $signup_status = $_SESSION['signup_status'];
     }
+
+    # Username error
     if ($signup_status == 1) {
         echo "<div class='form-container'>";
         echo "Username is already taken. Please choose a different one.";
         echo "</div>";
         $_SESSION['signup_status'] = '';
     }
+
+    # Email error
     if ($signup_status == 2) {
         echo "<div class='form-container'>";
         echo "Email is already registered under an account.";
         echo "</div>";
         $_SESSION['signup_status'] = '';
     }
+    # If none, run page without any errors
 }

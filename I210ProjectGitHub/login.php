@@ -1,4 +1,7 @@
 <?php
+/**
+ * Allows users to login to their accounts from the user table
+ */
 $pageTitle = "Login";
 include("header.php");
 checkLogin();

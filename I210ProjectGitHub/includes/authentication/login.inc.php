@@ -1,5 +1,6 @@
 <?php
 /**
+ * Logs user into their accoun
  * @var $tableUsers
  */
 # Declare required functions

@@ -1,4 +1,7 @@
 <?php
+/**
+ * index.php: homepage
+ */
 $pageTitle = "Home";
 include("header.php");
 ?>

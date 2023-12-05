@@ -1,4 +1,8 @@
 <?php
+/**
+ * Inserts a new game into the games table
+ */
+
 
 // Init functions
 require_once('../functions.inc.php');

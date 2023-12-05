@@ -1,10 +1,7 @@
 <?php
-
 /*
- * Author: your name
- * Date: today's date
  * File: removebook.php
- * Description: this script deletes a book from the database.
+ * Description: this script deletes a game from the database.
  *
  */
 

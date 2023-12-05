@@ -1,4 +1,7 @@
 <?php
+/**
+ * Allows users to create an account in the users table
+ */
 $pageTitle = "Signup";
 include("header.php");
 checkSignup();

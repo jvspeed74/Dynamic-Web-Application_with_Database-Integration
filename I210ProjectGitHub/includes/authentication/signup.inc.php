@@ -1,5 +1,8 @@
 <?php
 /**
+ * Validates signup info
+ * If good: redirects to login page
+ * If bad: redirects back to signup page
  * @var $tableUsers
  */
 # Declare required functions
@@ -16,7 +19,7 @@ connect();
 global $connection;
 checkSession();
 
-# Set attributes from POST
+# Securely set attributes from POST
 $firstname = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING)));
 $lastname = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_STRING)));
 $email = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL)));

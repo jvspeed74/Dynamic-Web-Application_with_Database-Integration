@@ -1,6 +1,6 @@
 <?php
 /**
- * Description: This script confirms deletion of book.
+ * Description: This script confirms deletion of game.
  */
 $pageTitle = "Confirm Game Deletion";
 require_once('header.php');

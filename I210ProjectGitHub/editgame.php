@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Allows admins to edit the details of a game
+ */
 $pageTitle = "Edit Game Details";
 require_once('header.php');
 
