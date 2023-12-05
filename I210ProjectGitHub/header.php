@@ -1,4 +1,7 @@
 <?php
+/**
+ * @var string $pageTitle
+ */
 require("includes/functions.inc.php");
 require("includes/database.inc.php");
 
@@ -24,7 +27,7 @@ if (isset($_SESSION['cart'])) {
 
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="www/css/main.css"/>
-    <title>Game 'n Go</title>
+    <title>Game 'n Go <?php echo $pageTitle ?></title>
 
 </head>
 <!-- Body Tag Starts -->

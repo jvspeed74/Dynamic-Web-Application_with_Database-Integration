@@ -13,6 +13,7 @@ checkLogin();
         <input type="password" name="password" placeholder="Password..." required/>
         <button type="submit" name="Submit">Login</button>
     </form>
+        <p><a href="signup.php">Create an account</a>
 </section>
 <!--Page Specific Content Ends-->
 <?php
