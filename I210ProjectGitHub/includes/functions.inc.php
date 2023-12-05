@@ -98,7 +98,10 @@ function checkLogin()
         exit();
     }
     if ($login_status == 2) {
+        echo "<div class='form-container'>";
         echo "Username or password invalid. Please try again.";
+        echo "</div>";
+        $_SESSION["login_status"] = '';
     }
     if ($login_status == 3) {
         echo "<div class='form-container'>";
