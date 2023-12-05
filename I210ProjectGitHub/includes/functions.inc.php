@@ -79,8 +79,14 @@ function getValidation($input_type, $var_name, $filter = null)
 }
 
 /**
- * Checks login status from $_SESSION and displays the page based on conditions.
+ * Checks login status from $_SESSION and displays the page based on $login_status.
  * @return void
+ * @var $login_status = 1 Login Successful.
+ * @var $login_status = 2 Login Failed.
+ * @var $login_status = 3 Account Creation Successful.
+ * @var $login_status = 4 Login to Check out Items.
+ * Some conditions reset $login_status to empty if they only should be displayed once.
+ * @var $login_status = '' Pass.
  */
 function checkLogin()
 {
@@ -110,5 +116,32 @@ function checkLogin()
         echo "<button><a href='logout.php'>Log out</a></button><br />";
         include('footer.php');
         exit();
+    }
+    if ($login_status == 4) {
+        echo "<div class='form-container'>";
+        echo "Login to your account to checkout your items.";
+        echo "</div>";
+        $_SESSION["login_status"] = '';
+    }
+}
+
+function checkSignup()
+{
+    $signup_status = '';
+
+    if (isset($_SESSION['signup_status'])) {
+        $signup_status = $_SESSION['signup_status'];
+    }
+    if ($signup_status == 1) {
+        echo "<div class='form-container'>";
+        echo "Username is already taken. Please choose a different one.";
+        echo "</div>";
+        $_SESSION['signup_status'] = '';
+    }
+    if ($signup_status == 2) {
+        echo "<div class='form-container'>";
+        echo "Email is already registered under an account.";
+        echo "</div>";
+        $_SESSION['signup_status'] = '';
     }
 }

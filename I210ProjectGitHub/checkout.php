@@ -7,17 +7,18 @@ require('header.php');
 
 // Prompt user to login in order to checkout
 if (!isset($_SESSION['login'])) {
- header("Location: login.php");
-exit();
+    $_SESSION['login_status'] = 4;
+    header("Location: login.php");
+    exit();
 }
 
 $_SESSION['cart'] = array();
 ?>
-<div class="container">
-<h2>Checkout</h2>
-<p>Thank you for shopping with us. Your business is greatly appreciated. You will
-    be notified once your items are shipped.
-</p>
+    <div class="container">
+        <h2>Checkout</h2>
+        <p>Thank you for shopping with us. Your business is greatly appreciated. You will
+            be notified once your items are shipped.
+        </p>
 
 <?php
 include("footer.php");
