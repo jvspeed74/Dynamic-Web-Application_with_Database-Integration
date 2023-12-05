@@ -115,6 +115,7 @@ function checkLogin()
         echo "<p>You are logged in as " . $_SESSION['login'] . ".</p>";
         echo "<button><a href='logout.php'>Log out</a></button><br />";
         include('footer.php');
+        $_SESSION["login_status"] = 1;
         exit();
     }
     if ($login_status == 4) {
