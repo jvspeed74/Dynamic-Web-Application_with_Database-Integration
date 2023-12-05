@@ -25,6 +25,9 @@ $password = $connection->real_escape_string(trim(filter_input(INPUT_POST, 'passw
 //set user's role
 $role = 2;  //regular user
 
+// Hash password
+$password_encrypted = password_hash($password, PASSWORD_DEFAULT);
+
 //execute the insert query
 $query = runQuery
 (
@@ -36,7 +39,7 @@ $query = runQuery
                   '$lastname',
                   '$email',
                   '$username',
-                  '$password',
+                  '$password_encrypted',
                   '$role'
                   )"
 );

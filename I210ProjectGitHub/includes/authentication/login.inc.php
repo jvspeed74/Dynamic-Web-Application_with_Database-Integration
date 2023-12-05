@@ -5,10 +5,12 @@
 # Declare required functions
 require_once("../functions.inc.php");
 
+# bad access clause
 if (!$_POST) {
     raiseError("Direct Access to the script is forbidden.");
 }
 
+# declare required db
 require_once("../database.inc.php");
 
 # Get db connection
@@ -30,28 +32,34 @@ if (isset($_POST['username'])) {
     if (isset($_POST['password'])) {
         $password = $connection->real_escape_string(trim($_POST['password']));
     } else {
-         raiseError("There was an issue identifying your password");
+        raiseError("There was an issue identifying your password");
     }
 } else {
     raiseError("There was an issue identifying your username");
 
 }
 
-
+// Run query matching the username
 $query = runQuery
 ("SELECT * 
               FROM $tableUsers
               WHERE username='$username'
-              AND password='$password'
               ");
 
-//A valid user. Need to store the user in session variables.
+// If username exists, check password. If both true, login
 if ($query->num_rows) {
     $row = $query->fetch_assoc();
-    $_SESSION['login'] = $username;
-    $_SESSION['role'] = $row['role'];
-    $_SESSION['name'] = $row['firstname'] . " " . $row['lastname'];
-    $_SESSION['login_status'] = 1;
+
+    // If password and hash match, run as normal
+    if (password_verify($password, $row['password'])) {
+
+        # Login Successfully
+        $_SESSION['login'] = $username;
+        $_SESSION['role'] = $row['role'];
+        $_SESSION['name'] = $row['firstname'] . " " . $row['lastname'];
+        $_SESSION['login_status'] = 1;
+    }
+
 }
 
 # disconnect from db
