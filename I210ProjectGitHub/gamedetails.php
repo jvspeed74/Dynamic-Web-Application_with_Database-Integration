@@ -25,7 +25,7 @@ $rows = fetchData($query);
 ?>
 
     <section>
-        <div class="game-details-container"
+        <div class="game-details-container">
         <h2>Game Details</h2>
         <table>
             <?php foreach ($rows as $row) { ?>
@@ -85,7 +85,7 @@ $rows = fetchData($query);
                            value="Add to Cart"/>
                     <input type="button"
                            onclick="window.location.href='listgames.php'"
-                           value="Cancel">
+                           value="Back to Games List">
                     <?php
                     // Display buttons only if user is admin
                     if ($_SESSION['role'] == 1) {
