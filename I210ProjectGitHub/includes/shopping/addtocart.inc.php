@@ -6,6 +6,11 @@
 // Init functions
 require_once('../functions.inc.php');
 
+// Kill the script if POST data is not detected
+if (!$_GET) {
+    raiseError("Direct access to this script is not allowed.");
+}
+
 // Check session status
 checkSession();
 
