@@ -115,6 +115,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    white-space: nowrap; /* Prevent line breaks within the list */
 }
 
 .nav li {
@@ -138,6 +139,9 @@ h2 {
     text-align: center;
 }
 
+h2 {
+    text-align: center;
+}
 /* Footer */
 footer {
     text-align: center;
@@ -323,6 +327,14 @@ This made the button appear at the bottom right of the entire page separate of t
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     margin-bottom: 80px;
+    text-align: center; /* Center content horizontally */
+}
+
+.game-details-container img {
+    max-width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Center the image within its container */
+    margin: 0 auto; /* Center the image horizontally */
 }
 
 .game-details-container h2 {
