@@ -87,8 +87,9 @@ function checkLogin()
     }
 
     if ($login_status == 1) {
+        echo "<div class='form-container'>";
         echo "<p>You are logged in as " . $_SESSION['login'] . ".</p>";
-        echo "<a href='logout.php'>Log out</a><br />";
+        echo "<button><a href='logout.php'>Log out</a></button><br />";
         include('footer.php');
         exit();
     }
@@ -96,8 +97,10 @@ function checkLogin()
         echo "Username or password invalid. Please try again.";
     }
     if ($login_status == 3) {
+        echo "<div class='form-container'>";
         echo "<p>Thank you for registering with us. Your account has been created.</p>";
-        echo "<a href='logout.php'>Log out</a><br />";
+        echo "<p>You are logged in as " . $_SESSION['login'] . ".</p>";
+        echo "<button><a href='logout.php'>Log out</a></button><br />";
         include('footer.php');
         exit();
     }
