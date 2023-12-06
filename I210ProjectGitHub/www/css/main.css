@@ -455,3 +455,55 @@ This made the button appear at the bottom right of the entire page separate of t
     text-decoration: none;
     font-weight: bold;
 }
+
+/* Sign up page */
+
+.signup-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: linear-gradient(to bottom, #004080, #002040);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.signup-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.signup-container button {
+    background-color: #0066cc;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.signup-container button:hover {
+    background-color: #005bb5;
+}
+
+.signup-container h2,
+.signup-container h3 {
+    text-align: center;
+}
+
+.signup-container .input-group {
+    margin-bottom: 15px;
+}
+
+.signup-container a {
+    color: #66a3ff;
+    text-decoration: none;
+}
