@@ -31,7 +31,7 @@ body {
     animation: glow 8s linear infinite;
 }
 
- /* This is the section of the page in the index, change text accordingly but do not change the tags as it will interfere with other code - Ayah */
+/* This is the section of the page in the index, change text accordingly but do not change the tags as it will interfere with other code - Ayah */
 .center-container {
     max-width: 800px;
     margin: 50px auto;
@@ -39,7 +39,7 @@ body {
     background-color: #003366;
     color: #fff;
     border-radius: 10px;
-     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .welcome-section p {
@@ -56,7 +56,7 @@ body {
 /* Header */
 .header {
     display: flex;
-    justify-content: space-between; /* Update to space-between */
+    justify-content: space-between;
     align-items: center;
     background: linear-gradient(to right, #003366, #000000);
     padding: 10px;
@@ -104,10 +104,14 @@ body {
     width: 100%;
 }
 
+.search input[type="submit"]:hover {
+    background-color: #005bb5;
+}
+
 /* Navbar items within the header */
 .nav {
     background: linear-gradient(to right, #0066cc, #003366);
-    margin-left: auto; /* Move the navbar to the right */
+    margin-left: auto;
 }
 
 .nav ul {
@@ -115,6 +119,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .nav li {
@@ -132,6 +137,10 @@ body {
 
 .nav a:hover {
     background-color: #005bb5;
+}
+
+h2 {
+    text-align: center;
 }
 
 h2 {
@@ -193,7 +202,7 @@ a {
 }
 
 a:hover {
-    color: #ffd700; /* Change to your preferred hover color */
+    color: #ffd700;
 }
 
 
@@ -288,7 +297,7 @@ This made the button appear at the bottom right of the entire page separate of t
     padding: 12px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #0a0a0a; /* Dark border color */
+    border: 1px solid #0a0a0a;
     border-radius: 5px;
     box-sizing: border-box;
     background-color: rgba(255, 255, 255, 0.8);
@@ -296,6 +305,7 @@ This made the button appear at the bottom right of the entire page separate of t
 }
 
 .form-container input[type="submit"],
+.form-container button,
 .form-container input[type="button"] {
     background-color: #005bb5;
     color: #fff;
@@ -308,6 +318,7 @@ This made the button appear at the bottom right of the entire page separate of t
 }
 
 .form-container input[type="submit"]:hover,
+.form-container button:hover,
 .form-container input[type="button"]:hover {
     background-color: #0072d6;
 }
@@ -323,6 +334,15 @@ This made the button appear at the bottom right of the entire page separate of t
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     margin-bottom: 80px;
+    text-align: center;
+}
+
+.game-details-container img {
+    max-width: 100%;
+    max-height: 250px;
+    display: block;
+    margin: 20px auto;
+    object-fit: contain;
 }
 
 .game-details-container h2 {
@@ -372,4 +392,164 @@ This made the button appear at the bottom right of the entire page separate of t
 .game-details-container div[style^="color: red; display: inline-block;"] {
     margin-top: 10px;
     text-align: center;
+}
+
+/*log in container, requires different css - ayah */
+
+.login-container {
+    background: linear-gradient(to right, #0066cc, #003366);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    margin: 50px auto;
+    max-width: 400px;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.login-container .sub-heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-container form {
+    text-align: center;
+}
+
+.login-container .input-group {
+    margin-bottom: 15px;
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.login-container button {
+    background-color: #005bb5;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.login-container button:hover {
+    background-color: #0072d6;
+}
+
+.login-container .signup-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-container a {
+    color: #66a3ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* Sign up page */
+
+.signup-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: linear-gradient(to bottom, #004080, #002040);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.signup-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.signup-container button {
+    background-color: #0066cc;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.signup-container button:hover {
+    background-color: #005bb5;
+}
+
+.signup-container h2,
+.signup-container h3 {
+    text-align: center;
+}
+
+.signup-container .input-group {
+    margin-bottom: 15px;
+}
+
+.signup-container a {
+    color: #66a3ff;
+    text-decoration: none;
+}
+
+/* content BOX specifically for the container on the login, signup page */
+.content-box {
+    max-width: 600px;
+    padding: 20px;
+    background: linear-gradient(to bottom, black, #003366);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.show-cart {
+    text-align: center;
+}
+
+.show-cart button {
+    background-color: #005bb5;
+    color: #ffffff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.show-cart button:hover {
+    background-color: #0072d6;
+
+}
+
+.show-cart a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.show-cart a:hover {
+    color: #fff;
+    text-decoration: none;
 }
