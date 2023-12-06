@@ -25,7 +25,7 @@ include("header.php");
                 <ul>
                     <li>Jalen Vaughn: Project Manager; Back-end Developer; Software Architect</li>
                     <li>Ayah Hineiti: Mid-Project Website Designer; Front-end Developer</li>
-                    <li>Phillip Eilers: Data Specialist; Database Ideation</li>
+
                 </ul>
             </div>
 
