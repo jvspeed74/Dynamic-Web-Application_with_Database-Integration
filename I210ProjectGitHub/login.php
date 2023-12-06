@@ -8,7 +8,7 @@ checkLogin();
 ?>
 <!--Page Specific Content Starts-->
 <section class="login-container">
-    <div class="container">
+    <div class="content-box">
         <h2>Login to Your Account</h2>
         <p class="sub-heading">Please enter your username and password to login.</p>
         <form action="includes/authentication/login.inc.php" method="post">

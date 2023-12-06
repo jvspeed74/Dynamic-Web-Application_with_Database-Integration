@@ -8,7 +8,7 @@ checkSignup();
 ?>
 <!--Page Specific Content Starts-->
 <section class="signup-container">
-    <div class="container">
+    <div class="content-box">
         <h2>Create an Account</h2>
         <h3>Please enter your credentials to sign up.</h3>
         <form action="includes/authentication/signup.inc.php" method="post">

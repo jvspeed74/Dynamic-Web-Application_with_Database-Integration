@@ -31,7 +31,7 @@ body {
     animation: glow 8s linear infinite;
 }
 
- /* This is the section of the page in the index, change text accordingly but do not change the tags as it will interfere with other code - Ayah */
+/* This is the section of the page in the index, change text accordingly but do not change the tags as it will interfere with other code - Ayah */
 .center-container {
     max-width: 800px;
     margin: 50px auto;
@@ -39,7 +39,7 @@ body {
     background-color: #003366;
     color: #fff;
     border-radius: 10px;
-     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .welcome-section p {
@@ -142,6 +142,7 @@ h2 {
 h2 {
     text-align: center;
 }
+
 /* Footer */
 footer {
     text-align: center;
@@ -300,6 +301,7 @@ This made the button appear at the bottom right of the entire page separate of t
 }
 
 .form-container input[type="submit"],
+.form-container button,
 .form-container input[type="button"] {
     background-color: #005bb5;
     color: #fff;
@@ -312,6 +314,7 @@ This made the button appear at the bottom right of the entire page separate of t
 }
 
 .form-container input[type="submit"]:hover,
+.form-container button:hover,
 .form-container input[type="button"]:hover {
     background-color: #0072d6;
 }
@@ -456,6 +459,7 @@ This made the button appear at the bottom right of the entire page separate of t
     font-weight: bold;
 }
 
+
 /* Sign up page */
 
 .signup-container {
@@ -506,4 +510,13 @@ This made the button appear at the bottom right of the entire page separate of t
 .signup-container a {
     color: #66a3ff;
     text-decoration: none;
+}
+
+/* content BOX specifically for the container on the login, signup page */
+.content-box {
+    max-width: 600px;
+    padding: 20px;
+    background: linear-gradient(to bottom, black, #003366);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
