@@ -104,6 +104,10 @@ body {
     width: 100%;
 }
 
+.search input[type="submit"]:hover {
+    background-color: #005bb5;
+}
+
 /* Navbar items within the header */
 .nav {
     background: linear-gradient(to right, #0066cc, #003366);
@@ -519,4 +523,33 @@ This made the button appear at the bottom right of the entire page separate of t
     background: linear-gradient(to bottom, black, #003366);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.show-cart {
+    text-align: center;
+}
+
+.show-cart button {
+    background-color: #005bb5;
+    color: #ffffff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.show-cart button:hover {
+    background-color: #0072d6;
+
+}
+
+.show-cart a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.show-cart a:hover {
+    color: #fff;
+    text-decoration: none;
 }

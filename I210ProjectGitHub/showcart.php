@@ -8,7 +8,11 @@ require('header.php');
 
 // If cart is empty in any session then run code
 if (!isset($_SESSION['cart']) || !$_SESSION['cart']) {
-    echo "<div class='container'> Your shopping cart is empty.<br><br>";
+    echo "<div class='container'> <h2>Shopping Cart</h2>
+    <div class='show-cart'>
+      <p>Your shopping cart is empty.</p>
+     <button onclick=window.location.href='listgames.php'>Browse Games</button>
+     </div>";
     include('footer.php');
     exit();
 }
