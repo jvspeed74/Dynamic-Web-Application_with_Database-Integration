@@ -1,5 +1,5 @@
 <!--Footer split from content pages-->
-    </body>
+</body>
 <!--Body Tag ends-->
 
 <!-- Footer Tag Starts -->

@@ -14,11 +14,13 @@ checkLogin();
         <form action="includes/authentication/login.inc.php" method="post">
             <div class="input-group">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" maxlength="50" placeholder="Enter your username" required />
+                <input type="text" id="username" name="username" maxlength="50" placeholder="Enter your username"
+                       required/>
             </div>
             <div class="input-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" maxlength="255" placeholder="Enter your password" required />
+                <input type="password" id="password" name="password" maxlength="255" placeholder="Enter your password"
+                       required/>
             </div>
             <button type="submit" name="Submit">Login</button>
         </form>

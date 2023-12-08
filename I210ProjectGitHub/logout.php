@@ -3,7 +3,7 @@
  * Logs users out of their accounts
  */
 $pageTitle = "Logout";
-include ('header.php');
+include('header.php');
 
 # start session
 checkSession();
@@ -26,6 +26,6 @@ session_destroy();
 
 
 <?php
-include ('footer.php');
+include('footer.php');
 ?>
 

@@ -36,40 +36,40 @@ $rows = fetchData($query);
     <!-- Display Shopping Cart Items -->
 
     <div class="container">
-        <h2>Shopping Cart</h2>
-        <div>
-            <table>
+    <h2>Shopping Cart</h2>
+    <div>
+        <table>
+            <tr>
+                <td>Title</td>
+                <td>Price</td>
+                <td>Quantity</td>
+                <td>Subtotal</td>
+            </tr>
+            <?php // Loop to display each item found in the cart
+            $total = 0;
+            foreach ($rows as $row) {
+                $id = $row['id'];
+                $title = $row['title'];
+                $price = $row['price'];
+                $qty = $cart[$id];
+                $subtotal = $qty * $price;
+                $total += $subtotal;
+                ?>
                 <tr>
-                    <td>Title</td>
-                    <td>Price</td>
-                    <td>Quantity</td>
-                    <td>Subtotal</td>
+                    <td><a href="gamedetails.php?id=<?= $id ?>"><?= $title ?></a></td>
+                    <td><?= $price ?></td>
+                    <td><?= $qty ?></td>
+                    <td><?php printf("%.2f", $subtotal); ?></td>
                 </tr>
-                <?php // Loop to display each item found in the cart
-                $total = 0;
-                foreach ($rows as $row) {
-                    $id = $row['id'];
-                    $title = $row['title'];
-                    $price = $row['price'];
-                    $qty = $cart[$id];
-                    $subtotal = $qty * $price;
-                    $total += $subtotal;
-                    ?>
-                    <tr>
-                        <td><a href="gamedetails.php?id=<?= $id ?>"><?= $title ?></a></td>
-                        <td><?= $price ?></td>
-                        <td><?= $qty ?></td>
-                        <td><?php printf("%.2f", $subtotal); ?></td>
-                    </tr>
-                <?php } ?>
-            </table>
-        </div>
+            <?php } ?>
+        </table>
+    </div>
 
 
-        <div>
-            <input class="checkout-button" type="button" value="Checkout" onclick="window.location.href = 'checkout.php'"/>
-            <h2 class="total">Your Total is <?= $total ?></h2>
-        </div>
+    <div>
+        <input class="checkout-button" type="button" value="Checkout" onclick="window.location.href = 'checkout.php'"/>
+        <h2 class="total">Your Total is <?= $total ?></h2>
+    </div>
 
 <?php
 disconnect();

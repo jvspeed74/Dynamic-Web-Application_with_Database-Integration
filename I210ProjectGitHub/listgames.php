@@ -27,7 +27,7 @@ $rows = fetchData($query);
 
     <section>
         <div class="container">
-        <h2>Games in our store</h2>
+            <h2>Games in our store</h2>
 
             <table>
                 <tr>

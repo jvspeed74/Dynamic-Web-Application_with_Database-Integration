@@ -23,29 +23,29 @@ $rows = searchGames($term);
 ?>
     <section>
         <div class="container">
-        <h2>Games in our store - <?= count($rows) ?> Result(s)</h2>
-        <?php if (count($rows) == 0) {
-            exit("No games were found in the search.");
-        } ?>
-        <div>
-            <table>
-                <tr>
-                    <td>Title</td>
-                    <td>Genre</td>
-                    <td>ESRB</td>
-                    <td>Price</td>
-                </tr>
-                <!-- PHP code to list search result from the "games" table -->
-                <?php foreach ($rows as $row) { ?>
+            <h2>Games in our store - <?= count($rows) ?> Result(s)</h2>
+            <?php if (count($rows) == 0) {
+                exit("No games were found in the search.");
+            } ?>
+            <div>
+                <table>
                     <tr>
-                        <td><a href="gamedetails.php?id=<?= $row['id'] ?>"><?= $row['title'] ?></a></td>
-                        <td><?= $row['genre'] ?></td>
-                        <td><?= $row['esrb'] ?></td>
-                        <td><?= $row['price'] ?></td>
+                        <td>Title</td>
+                        <td>Genre</td>
+                        <td>ESRB</td>
+                        <td>Price</td>
                     </tr>
-                <?php } ?>
-            </table>
-        </div>
+                    <!-- PHP code to list search result from the "games" table -->
+                    <?php foreach ($rows as $row) { ?>
+                        <tr>
+                            <td><a href="gamedetails.php?id=<?= $row['id'] ?>"><?= $row['title'] ?></a></td>
+                            <td><?= $row['genre'] ?></td>
+                            <td><?= $row['esrb'] ?></td>
+                            <td><?= $row['price'] ?></td>
+                        </tr>
+                    <?php } ?>
+                </table>
+            </div>
     </section>
 <?php
 disconnect();
