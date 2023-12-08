@@ -13,28 +13,26 @@ include("header.php");
             <div class="feature-list">
                 <p>New Features in This Version:</p>
                 <ul>
-                    <li>Shopping Cart</li>
-                    <li>Create/Update/Delete Items in Database</li>
-                    <li>CSS Refinement</li>
-                    <li>A Sitewide Logo</li>
+                    <li>User Authentication & Authorization</li>
+                    <li>Advanced Features:</li>
+                    <li>Password Hashing</li>
+                    <li>Prevention of Duplicate Accounts (username/email)</li>
                 </ul>
             </div>
 
             <div class="contributors-list">
                 <p>Contributors and their roles:</p>
                 <ul>
-                    <li>Jalen Vaughn: Project Manager; Back-end Developer; Software Architect</li>
-                    <li>Ayah Hineiti: Mid-Project Website Designer; Front-end Developer</li>
+                    <li>Jalen Vaughn: Project Manager; Back-end Developer; Database Handler</li>
+                    <li>Ayah Hineiti: Post Draft-2 Website Designer; Front-end Developer</li>
 
                 </ul>
             </div>
 
             <div class="tasks-list">
-                <p>Priority Tasks:</p>
+                <p>Check-out the Project GitHub!</p>
                 <ul>
-                    <li>Complete CSS Integration</li>
-                    <li>Replace Content in Homepage with Game Related Elements</li>
-                    <li>Document All PHP Pages with their purpose.</li>
+                    <li><a href="https://github.com/jvspeed74/I210SharedProject">https://github.com/jvspeed74/I210SharedProject</a></li>
                 </ul>
             </div>
         </div>
