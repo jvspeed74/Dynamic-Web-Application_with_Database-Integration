@@ -2,8 +2,8 @@
 This project entails creating and developing a functional PHP web application driven by a database, with similarities to e-commerce websites found on the Internet. The application proficiently executes the fundamental operations of a database: creation, retrieval, updating, and deletion. The data layer of the web application is established using a MySQL database. This endeavor serves as a practical demonstration of our ability to transform a project from its conceptual phase to actual implementation. It also showcases our teamwork skills, proficiency in procedural programming with PHP, and expertise in integrating data with MySQL.
 
 # Project Member Roles
-Jalen Vaughn: Backend Development; Database design and integration
-Ayah Hineiti: Frontend Development; Overall site design and scope
+- Jalen Vaughn: Backend Development; Database design and integration
+- Ayah Hineiti: Frontend Development; Overall site design and scope
 
 # Technical Requirements
 1. Use of a sitewide external style sheet
